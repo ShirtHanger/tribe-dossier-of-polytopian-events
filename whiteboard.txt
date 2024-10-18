@@ -1,0 +1,62 @@
+POLYTOPIA TRIBE DOSSIER!
+
+[Random number function will be used to randomize images, lore blurbs, strategy blurbs,  etc]
+
+PARENT: Polytopia Tribe (Tribe)
+	name: string
+	inspirations/cultures: string OR array of strings
+	headImageURL: string
+	descriptions {nested object}
+		main: string required
+		loreBlurbs: not required [Array of multiple descriptions, may or may not include skin descriptions]
+	otherImages [Array of misc images]
+	isFreeTribe: bool
+	isSpecialTribe: bool
+	color {nested object of strings}
+		name: string
+		hex: string
+	tribeSkins: [Array of Objects, set to not required]
+		name:
+		description:
+		headImageURL:
+		
+	
+
+Child (Sibling): Tribe Moon and Tribe Week Lore Blurb (culture)
+	tribe_ID:
+	tribe_Name:
+
+	USE YOUTUBE EMBEDDED LINKS FOR VIDEO LORE STUFF
+	https://developers.google.com/youtube/youtube_player_demo
+	https://www.youtube.com/watch?v=Avyz7z002U0 (Ai-Mo 2023 Video)
+	
+	look up iframe in HTML, on how to implement videos
+	https://www.w3schools.com/html/html_iframe.asp
+
+	const mediaElement = document.createElement(item.type === 'image' ? 'img' : 'iframe')
+
+	2019_tribe_lore {Object, not required}
+		mediaURL: (Image link OR embedded Youtube Link)
+		Blurb:
+	2020_tribe_lore {Object, not required}
+		mediaURL: 
+		Blurb:
+	2021_tribe_lore {Object, not required}
+		mediaURL: 
+		Blurb:
+	2022_tribe_lore {Object, not required}
+		mediaURL: 
+		Blurb:
+	2023_tribe_lore {Object, not required}
+		mediaURL: 
+		Blurb:
+	2024_tribe_lore {Object, not required}
+		mediaURL: 
+		Blurb:
+
+Child (Sibling): Sweaty nerd strategy (Strategy)
+	[[[[I have a few ideas]]]]]
+	tips_and_tricks: array of strings, not required
+	OR
+	tip: string (Each tribe will have multiple strategies)
+(((Stretch goal: Allow users to update this via front end Create)))
