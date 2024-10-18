@@ -7,7 +7,7 @@ const cultureSchema = new Schema(
     
     lore_2019: { type: String, required: false },
     lore_2020: { type: String, required: false },
-    lore_2021: { type: String, required: false },
+    lore_2021: { type: String, required: false },   
     lore_2022: { type: String, required: false },
     lore_2023: { type: String, required: false },
     lore_2024: { type: String, required: false },

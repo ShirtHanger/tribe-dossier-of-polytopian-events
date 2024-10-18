@@ -7,7 +7,9 @@ db.on(`error`, console.error.bind(console, `MongoDB connection error:`))
 
 /* For all Google Drive images, you must get the IMAGE ID
 
-https://drive.usercontent.google.com/download?id=1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a
+https://drive.google.com/file/d/1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a/view
+
+https://drive.google.com/file/d/1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a/preview
 
 ID: 1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a
 
@@ -27,277 +29,383 @@ Polytopia UNITS - https://drive.google.com/drive/folders/1LcAI2Kny2V47WxPXR8uLo3
 
 const main = async () => {
     const tribes = [
+      // Xin-Xi
       {
         name: `Xin-Xi`,
         inspirations: [`Japanese`, `Chinese`],
+        leader: `Shayoszu`,
         description: `They start their journey in the dense mountains, surrounded by beautiful cherry blossoms.`,
-        colorName: `dark red`,
+        colorName: `Dark red`,
         colorHex: `#cc0000`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=1-M0m7c2lnB6SSAcrK45BKK-lYALe8yPs`,
+        headImageURL: `https://files.catbox.moe/t4r8fg`,
+        unitImageURL: `https://files.catbox.moe/1q4atd.png`,
+        buildingImageURL: `https://files.catbox.moe/qi20yh.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
         theme: `https://static.wikia.nocookie.net/supertribes/images/2/26/Xin-xi_Theme.wav/revision/latest`,
-        natureTheme: `https://static.wikia.nocookie.net/supertribes/images/1/13/Xin-xi_Nature.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/13/Xin-xi_Nature.wav/revision/latest`,
         skins: [{
           name: `Sha-Po`,
           description: `In the misty hills around Mt. Xin-xi resides the Sha-po, a secretive legion of assassins trained in the arts of dealing a silent death to anyone who opposes the Xin-xi Empire.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=1eq7XAIcziKY6wWw8So-VYVRv-gt5LlWU`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=1nqafNdulJKweDEBnPu11E-SNqOl0t68u`,
+          headImageURL: `https://files.catbox.moe/0j1h9h.png`,
+          unitImageURL: `https://files.catbox.moe/2w76qo.png`,
+          buildingImageURL: `https://files.catbox.moe/3938c7.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/1/1e/Xin-xi_Skin_Theme.ogg/revision/latest`
         }]
       },
 
-      /* Incorrect data, for convenience, correct and review later */
-
-      { /* Corrected, add images */
+      // Imperius
+      {
         name: `Imperius`,
         inspirations: [`Roman`, `Greek`],
+        leader: `Dopilus`,
         description: `Huge mountains and green valleys. The Imperius climate is perfect for growing fruit.`,
         colorName: `Blue`,
         colorHex: `#0000ff`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        headImageURL: `https://files.catbox.moe/qvot3x.png`,
+        unitImageURL: `https://files.catbox.moe/rq3mhe.png`,
+        buildingImageURL: `https://files.catbox.moe/3t2csw.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
         theme: `https://static.wikia.nocookie.net/supertribes/images/9/9c/Imperius_Theme.wav/revision/latest`,
-        natureTheme: `https://static.wikia.nocookie.net/supertribes/images/0/0b/Imperius_Nature.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/0/0b/Imperius_Nature.wav/revision/latest`,
         skins: [{
           name: `Lirepacci`,
           description: `The scholarly Lirepacci have ventured out of Imperia to gain new perspectives on life through warfare, the study of other cultures, and hours of philosophical debate.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+          headImageURL: `https://files.catbox.moe/q38s73.png`,
+          unitImageURL: `https://files.catbox.moe/nuisvm.png`,
+          buildingImageURL: `https://files.catbox.moe/kr5lpb.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/e/ea/Imperius_Skin_Theme.ogg/revision/latest`,
         }]
       },
-      { /* Done, now add images */
+
+      // Bardur
+      {
         name: `Bardur`,
         inspirations: [`Norse`, `Viking`, `Scandinavian`],
+        leader: `Linlin`,
         description: `Surviving the harsh eternal winter of the Bardur woods is not an easy task, but Bardur seems to thrive here.`,
         colorName: `Dark Brown`,
         colorHex: `#352514`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        headImageURL: `https://files.catbox.moe/dzzu8x.png`,
+        unitImageURL: `https://files.catbox.moe/txwf63.png`,
+        buildingImageURL: `https://files.catbox.moe/h18we0.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
         theme: `https://static.wikia.nocookie.net/supertribes/images/2/21/Bardur_Theme.wav/revision/latest`,
-        natureTheme: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Bardur_Nature.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Bardur_Nature.wav/revision/latest`,
         skins: [{
           name: `Baergøff`,
           description: `The Baergøff are the Bardur's elite hunters. Clad in the sanctified pelt of their first Baerion kill, they're ready for anything!`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+          headImageURL: `https://files.catbox.moe/85qe7l.png`,
+          unitImageURL: `https://files.catbox.moe/4au0m4.png`,
+          buildingImageURL: `https://files.catbox.moe/xxy0x3.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/3/37/Bardur_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Oumaji
       {
         name: `Oumaji`,
-        inspirations: [`Bedouin`, `Nomadic`],
-        description: `A nomadic desert tribe, Oumaji warriors ride swiftly across the sands, their knowledge of survival unmatched.`,
-        colorName: `desert yellow`,
-        colorHex: `#ffcc00`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Arabian`, `Nomadic`, `North African`, `Middle East`],
+        leader: `Yelake`,
+        description: `The seemingly endless, sun-blessed desert is the home of the Oumaji tribe.`,
+        colorName: `Yellow`,
+        colorHex: `#ffff00`,
+        headImageURL: `https://files.catbox.moe/bmolf1.png`,
+        unitImageURL: `https://files.catbox.moe/yvrczj.png`,
+        buildingImageURL: `https://files.catbox.moe/gowzl9.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/9/91/Oumaji_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c7/Oumaji_Nature.wav/revision/latest`,
         skins: [{
           name: `Khondor`,
-          description: `Elite desert riders who roam the vast dunes, known for their sharp spear skills and unrivaled agility.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `This ancient order of Khondor Honor Guards has been around for ages, and they're here to return the Oumaji to a more "civilized" time.`,
+          headImageURL: `https://files.catbox.moe/isckfs.png`,
+          unitImageURL: `https://files.catbox.moe/ptwjer.png`,
+          buildingImageURL: `https://files.catbox.moe/2lq60g.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/b/b9/Oumaji_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Kickoo
       {
         name: `Kickoo`,
-        inspirations: [`Polynesian`, `Islanders`],
-        description: `A peaceful island tribe that has mastered fishing and ocean navigation, living in harmony with the sea.`,
-        colorName: `light blue`,
-        colorHex: `#00ccff`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Polynesian`, `Pacific Islanders`, `Carribean`],
+        leader: `Nuko`,
+        description: `White sandy beaches with coconut palms. Abundance of fruit and fish. Welcome to the home of the Kickoo.`,
+        colorName: `Green`,
+        colorHex: `#00ff00`,
+        headImageURL: `https://files.catbox.moe/n66d4q.png`,
+        unitImageURL: `https://files.catbox.moe/srm1i1.png`,
+        buildingImageURL: `https://files.catbox.moe/50fawq.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/e/ef/Kickoo_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/e/e3/Kickoo_Nature.wav/revision/latest`,
         skins: [{
           name: `Ragoo`,
-          description: `Warriors of the sea who don tribal tattoos and brightly colored feathers, fierce protectors of the Kickoo islands.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `The scourge of the waters, the bane of navies, the serpents of the seas - The Ragoo Pirates! Their fleets of ships and lust for plunder are ready to expand their operations from the Kickoo Isles to the rest of the Square!`,
+          headImageURL: `https://files.catbox.moe/y1oq4e.png`,
+          unitImageURL: `https://files.catbox.moe/p5jqyl.png`,
+          buildingImageURL: `https://files.catbox.moe/ti6v1n.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/d/d7/Kickoo_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Hoodrick
       {
         name: `Hoodrick`,
-        inspirations: [`Medieval Europe`, `Robin Hood`],
-        description: `A tribe of skilled archers and cunning tacticians, known for their deep connection to the forests they protect.`,
-        colorName: `forest green`,
-        colorHex: `#228b22`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Medieval Europe`, `Robin Hood`, `English`],
+        leader: `Rydon`,
+        description: `The yellow autumn leaves of the Hoodrick woods are perfect hideouts for its peculiar mushroom stuffing inhabitants.`,
+        colorName: `Golden Brown`,
+        colorHex: `#996600`,
+        headImageURL: `https://files.catbox.moe/t00p9g.png`,
+        unitImageURL: `https://files.catbox.moe/szm7re.png`,
+        buildingImageURL: `https://files.catbox.moe/5gqhbm.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/5/51/Hoodrick_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/b/b6/Hoodrick_Nature.wav/revision/latest`,
         skins: [{
           name: `Yorthwober`,
-          description: `Rangers of the deep woods, cloaked in dark green and brown, masters of the bow and experts at guerrilla warfare.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `Bands of the Hoodrick's finest sharpshooters and survivalists, the Yorthwober know their way around combat just as well as they do the hills and forests.`,
+          headImageURL: `https://files.catbox.moe/7i8ccx.png`,
+          unitImageURL: `https://files.catbox.moe/soc3vz.png`,
+          buildingImageURL: `https://files.catbox.moe/rgxc7q.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/3/33/Hoodrick_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Luxidoor
       {
         name: `Luxidoor`,
-        inspirations: [`French`, `Italian Renaissance`],
-        description: `Luxidoor is a wealthy and extravagant empire, known for its grand architecture and immense riches.`,
-        colorName: `gold`,
-        colorHex: `#ffd700`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Indian`],
+        leader: `Lönliss`,
+        description: `The Luxidoor love expensive things, jewels, rare spices and exclusive ornaments. That is also why they are the most expensive tribe in Polytopia!
+The Luxidoor citizens lead very comfortable lives, draped in the finest purple silk. But will they survive outside of their beloved capital?`,
+        colorName: `purple`,
+        colorHex: `#ab3bd6`,
+        headImageURL: `https://files.catbox.moe/kqetax.png`,
+        unitImageURL: `https://files.catbox.moe/dj63ea.png`,
+        buildingImageURL: `https://files.catbox.moe/pbb4ef.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/5/56/Luxidoor_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/5/5f/Luxidoor_Nature.wav/revision/latest`,
         skins: [{
           name: `Aumux`,
-          description: `Draped in jewels and luxurious attire, the Aumux warriors represent the peak of wealth and power.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `The Aumux Mercenaries are ruthless, effective, and more willing to destroy their foes, desolate the land, and empty the treasury of their employers in their insatiable, all-consuming greed.`,
+          headImageURL: `https://files.catbox.moe/yuj49p.png`,
+          unitImageURL: `https://files.catbox.moe/eang8o.png`,
+          buildingImageURL: `https://files.catbox.moe/w9y73k.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/c/c4/Luxidoor_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Vengir
       {
         name: `Vengir`,
-        inspirations: [`Mongolian`, `Barbarian`],
-        description: `A warlike tribe known for their cruelty and strength, Vengir warriors conquer all who stand in their way.`,
-        colorName: `blood red`,
-        colorHex: `#8b0000`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Gothic`, `Slavic`, `Mordor`],
+        leader: `Thxas`,
+        description: `Frowned upon by the other tribes and pushed into the unpleasant wastelands. Will they tolerate this injustice or rise to fight back?`,
+        colorName: `White`,
+        colorHex: `#ffffff`,
+        headImageURL: `https://files.catbox.moe/snopqp.png`,
+        unitImageURL: `https://files.catbox.moe/hl7h0i.png`,
+        buildingImageURL: `https://files.catbox.moe/q9p6rz.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/3/36/Vengir_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/3f/Vengir_Nature.wav/revision/latest`,
         skins: [{
           name: `Cultist`,
-          description: `Vengir cultists, shrouded in black and crimson, are devoted to the gods of war and bloodshed.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `Fanatical Vengir Cultists devoted to Burzgor shrug off their flesh in the harrowing Thdkrkr Ritual to show their dedication to revenge.`,
+          headImageURL: `https://files.catbox.moe/dp57m2.png`,
+          unitImageURL: `https://files.catbox.moe/rhtj6x.png`,
+          buildingImageURL: `https://files.catbox.moe/rvet41.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/5/5d/Vengir_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Zebasi
       {
         name: `Zebasi`,
-        inspirations: [`African`, `Sub-Saharan`],
-        description: `A tribe that thrives in the savannah, known for their strong warriors and deep spiritual connection to nature.`,
-        colorName: `orange`,
-        colorHex: `#ff8000`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`South African`, `Sub-Saharan`],
+        leader: `Bozu`,
+        description: `Zebasi thrive on the warm savannah, cultivating the rich soil to provide food for their mighty population.`,
+        colorName: `Orange`,
+        colorHex: `#ff9900`,
+        headImageURL: `https://files.catbox.moe/sukofr.png`,
+        unitImageURL: `https://files.catbox.moe/qfoe4p.png`,
+        buildingImageURL: `https://files.catbox.moe/8e6t3n.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/6/65/Zebasi_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/93/Zebasi_Nature.wav/revision/latest`,
         skins: [{
           name: `Anzala`,
-          description: `Wearing elaborate masks and flowing robes, Anzala warriors are both spiritual leaders and formidable fighters.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `The disciples of Anzala prefer the ways of art and expression over the scientific curiosity of their Zebasi siblings, and now they're here, with the Square as their canvas!`,
+          headImageURL: `https://files.catbox.moe/ts0k33.png`,
+          unitImageURL: `https://files.catbox.moe/jn4gtr.png`,
+          buildingImageURL: `https://files.catbox.moe/rs30bu.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/4/4d/Zebasi_Skin_Theme.ogg/revision/latest`,
+  
         }]
       },
-      { /* Correct, now add images and themes */
+
+      // Ai-Mo
+      { 
         name: `Ai-Mo`,
         inspirations: [`Nepalese`, `Tibetan`, `Andean`],
+        leader: `Lifidee`,
         description: `The tranquil and wise Ai-Mo tribe inhabits the harshest, windiest, and highest mountain range of the square, where they have found inner peace by meditating in the eternal evening light.`,
         colorName: `Turquoise`,
         colorHex: `#36e2aa`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        headImageURL: `https://files.catbox.moe/eos6x2.png`,
+        unitImageURL: `https://files.catbox.moe/tqytgf.png`,
+        buildingImageURL: `https://files.catbox.moe/puuwmi.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/f/f0/Ai-Mo_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Ai-Mo_Nature.wav/revision/latest`,
         skins: [{
           name: `To-Lï`,
           description: `The To Lï rigorously train their bodies and minds in their sturdy Binba forests, and are here to show their strength and discipline to the Square.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          headImageURL: `https://files.catbox.moe/ex37tx.png`,
+          unitImageURL: `https://files.catbox.moe/w2nw1a.png`,
+          buildingImageURL: `https://files.catbox.moe/qpk3ng.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/0/0f/Ai-Mo_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Quetzali
       {
         name: `Quetzali`,
-        inspirations: [`Aztec`, `Mesoamerican`],
-        description: `A fierce and proud tribe that builds towering pyramids and worships the sun, Quetzali are masters of stone and war.`,
-        colorName: `turquoise`,
-        colorHex: `#40e0d0`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Aztec`, `Mesoamerican`, `Olmec`, `Mayan`, `Toltec`],
+        leader: `Chotek`,
+        description: `The Quetzali tribe worship the Bird Gods of the red soil and live in harmony with the natural symmetry of their cubistic jungles. They are commonly seen riding giant flightless birds.`,
+        colorName: `Pine Green`,
+        colorHex: `#275c4a`,
+        headImageURL: `https://files.catbox.moe/s55jyy.png`,
+        unitImageURL: `https://files.catbox.moe/2wcshu.png`,
+        buildingImageURL: `https://files.catbox.moe/swxxxx.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/b/b4/Quetzali_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/9b/Quetzali_Nature.wav/revision/latest`,
         skins: [{
           name: `Iquaruz`,
-          description: `Warriors adorned with bright feathers and gold, Iquaruz are the elite protectors of Quetzali's ancient temples.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          description: `Some Quetzali have taken their devotion to the Bird Gods to new heights as they try to transform themselves into actual birds. They look pretty but unfortunately they cannot fly.`,
+          headImageURL: `https://files.catbox.moe/xqmak1.png`,
+          unitImageURL: `https://files.catbox.moe/ecmupd.png`,
+          buildingImageURL: `https://files.catbox.moe/e9pgwo.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/a/a8/Quetzali_Skin_Theme.ogg/revision/latest`,
         }]
       },
-      { /* CORRECT, now add images and themes */
+
+      // Yadakk
+      {
         name: `Yădakk`,
         inspirations: [`Turkish`, `Mongolian`],
+        leader: `Azurkaz`,
         description: `The Yădakk started out as a nomadic tribe in the beautiful harsh Khalee plains. Now they are the traders of the Square, connecting their empire with impressive trade routes.`,
         colorName: `Maroon`,
         colorHex: `#7d231c`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        headImageURL: `https://files.catbox.moe/yj49qw.png`,
+        unitImageURL: `https://files.catbox.moe/lgn536.png`,
+        buildingImageURL: `https://files.catbox.moe/o6a3eo.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/d/d8/Y%C4%83dakk_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/39/Y%C4%83dakk_Nature.wav/revision/latest`,
         skins: [{
-          name: `Ürkaz Skin`,
+          name: `Ürkaz`,
           description: `The gruff Ürkaz from the Khalee Highlands control the criminal underground of the Yădakk, and nothing is off limits are they establish economic domination of the Square!`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`
+          headImageURL: `https://files.catbox.moe/mopga7.png`,
+          unitImageURL: `https://files.catbox.moe/w7ne4n.png`,
+          buildingImageURL: `https://files.catbox.moe/9zzaca.png`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/8/82/Y%C4%83dakk_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Aquarion
       {
         name: `Aquarion`,
-        inspirations: [`Atlantean`, `Mythical Ocean`],
-        description: `Aquarion is an aquatic race living in the depths of the ocean, excelling in both water-based combat and diplomacy.`,
-        colorName: `deep sea blue`,
-        colorHex: `#000080`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Atlantean`],
+        leader: `Nepico`,
+        description: `From the deep oceans a long lost civilization appears! During their time in isolation they have developed mermaid tails that makes it possible for them to move freely in water.`,
+        colorName: `light coral`,
+        colorHex: `#f38381`,
+        headImageURL: `https://files.catbox.moe/qbfof8.png`,
+        unitImageURL: `https://files.catbox.moe/g1etqo.png`,
+        buildingImageURL: `https://files.catbox.moe/b5ffb1.png`,
         isFreeTribe: false,
-        isSpecialTribe: true
+        isSpecialTribe: true,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/3/35/Aquarion_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c2/Aquarion_Nature.wav/revision/latest`,
       },
-      { /* Corrected, now add themes and images IDs */
+
+      // Elyrion
+      {
         name: `∑∫ỹriȱŋ`,
         inspirations: [`Elven`],
+        leader: `totorö`,
         description: `The mysterious ∑∫ỹriȱŋ defend their woodland homes with colorful magic and the ferocity of fire-breathing dragons!`,
         colorName: `Hot Pink`,
         colorHex: `#ff0099`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        headImageURL: `https://files.catbox.moe/dzaoko.png`,
+        unitImageURL: `https://files.catbox.moe/wzrf8d.png`,
+        buildingImageURL: `https://files.catbox.moe/yrxz7s.png`,
         isFreeTribe: false,
         isSpecialTribe: true,
         theme: `https://static.wikia.nocookie.net/supertribes/images/0/06/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Theme.wav/revision/latest`,
-        natureTheme: `https://static.wikia.nocookie.net/supertribes/images/d/da/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Nature.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/d/da/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Nature.wav/revision/latest`,
         skins: [{
           name: `₼idŋighţ`,
           description: `The ₼idŋighţ cult has been corrupted by the Shard of D'Naeh, a mystical relic fueled by darkness. Through necromancing practices they can summon demons from graves in the dark forests.`,
-          headImageURL: `https://drive.usercontent.google.com/download?id=`,
-          unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+          headImageURL: `https://files.catbox.moe/s4d6bh.png`,
+          unitImageURL: `https://files.catbox.moe/ahfo1i.png`,
+          buildingImageURL: `https://files.catbox.moe/x5xyea.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/1/1f/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Skin_Theme.ogg/revision/latest`,
         }]
       },
+
+      // Cymanti 
       {
         name: `Cymanti`,
-        inspirations: [`Insectoid`, `Swarm`],
-        description: `The Cymanti are an insectoid species that use swarms and spores to overrun their enemies, dominating the land with their hive mind.`,
-        colorName: `acid green`,
-        colorHex: `#66ff66`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Insectoid`, `Old-Growth Forests`, `Redwood Forests`],
+        leader: `Mylozi`,
+        description: `The Cymanti are a breakout group of Polytopians who moved to the swampy forests and learned to live with the Ciru Bug, which attaches to their faces and merges with their brains.`,
+        colorName: `Lime`,
+        colorHex: `#c2fd00`,
+        headImageURL: `https://files.catbox.moe/hqjr03.png`,
+        unitImageURL: `https://files.catbox.moe/idstl6.png`,
+        buildingImageURL: `https://files.catbox.moe/830ozo.png`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/8/8a/Cymanti_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/6/68/Cymanti_Nature.wav/revision/latest`,
         isFreeTribe: false,
         isSpecialTribe: true
       },
+
+      // Polaris
       {
         name: `Polaris`,
-        inspirations: [`Ice`, `Frozen North`],
-        description: `Polaris is a mysterious and cold tribe from the frozen north, capable of manipulating ice and snow to their advantage.`,
-        colorName: `icy blue`,
-        colorHex: `#00ffff`,
-        headImageURL: `https://drive.usercontent.google.com/download?id=`,
-        unitImageURL: `https://drive.usercontent.google.com/download?id=`,
+        inspirations: [`Indigenous Siberia`, `Inuit`, `Canadian Aboriginal`],
+        leader: `Nuupi`,
+        description: `The Polaris have lain trapped in the far reaches of the freezing tundra for eons, but were blessed by the unknowable Gaami with the power to expand their unnatural icy terrain farther than the weather permits.`,
+        colorName: `Light Tan`,
+        colorHex: `#b6a185`,
+        headImageURL: `https://files.catbox.moe/53di8e.png`,
+        unitImageURL: `https://files.catbox.moe/novx8w.png`,
+        buildingImageURL: `https://files.catbox.moe/pxx5iv.png`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/d/d0/Polaris_Theme.wav/revision/latest`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/7/72/Polaris_Nature.wav/revision/latest`,
         isFreeTribe: false,
         isSpecialTribe: true
       }
-
-
 
     ]
   
@@ -306,7 +414,7 @@ const main = async () => {
   await Tribe.insertMany(tribes) 
 
   console.log(`============================`)
-  console.log(`TRIBES have been seeded!`)
+  console.log(`TRIBES have been discovered!`)
   console.log(`============================`)
 
 }
