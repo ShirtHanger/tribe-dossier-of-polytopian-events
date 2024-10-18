@@ -1,18 +1,29 @@
-// const mongoose = require('mongoose')
-/* If only one schema, you can do models index function with this. */
 const { Schema } = require('mongoose')
 
-const parentSchema = new Schema(
+const tribeSchema = new Schema(
   {
-    country: { type: String, required: true },
-    religion: { type: Number, required: true, min: 0 },
-    isMoral: { type: Boolean, required: true },
+    name: { type: String, required: true },
+    inspirations: [{ type: String, required: false }],
+    description: { type: String, required: true},
+    colorName: { type: String, required: true},
+    colorHex: { type: String, required: true},
+    headImageURL: { type: String, required: true },
+    unitImageURL: { type: String, required: true },
+    isFreeTribe: { type: Boolean, required: true },
+    isSpecialTribe: { type: Boolean, required: true },
+    theme: { type: String, required: false },
+    natureTheme: { type: String, required: false },
+    skins: [{
+      name: { type: String, required: false },
+      description: { type: String, required: false },
+      headImageURL: { type: String, required: false },
+      unitImageURL: { type: String, required: false },
+      theme: { type: String, required: false },
+    }]
   },
   { timestamps: true }
 )
 
-module.exports = parentSchema
+/* Append Themes to all tribes later, after you finish filling up tribe seed */
 
-// module.exports = mongoose.model('parents', Parent) 
-
-/* If there is only one schema, you can do the models index function here */
+module.exports = tribeSchema

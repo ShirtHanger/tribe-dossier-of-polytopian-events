@@ -1,75 +1,75 @@
-/* Here's how you import the childs database into our controller */
+/* Here's how you import the cultures database into our controller */
 
-const { Child, Parent } = require('../models')
+const { Media, Culture, Tribe } = require('../models')
 
 // INDEX - app.get
-const getAllChilds = async (req, res) => {
+const getAllCultures = async (req, res) => {
     /* try-catch is like an if else statement, prints an error on else */
     try {
-        const childs = await Child.find()
-        res.json(childs) /* Sends data in json format */
+        const cultures = await Culture.find()
+        res.json(cultures) /* Sends data in json format */
     } catch (error) {
         return res.status(500).send(error.message)
     }
 }
 // SHOW - app.get
-getChildById = async (req, res) => {
+getCultureById = async (req, res) => {
     try {
         const { id } = req.params
-        const child = await Child.findById(id)
-        if (child) {
-            return res.json(child)
-        } return res.status(404).send(`Child with id of ${id} not found!`) // Technically an else statement
+        const culture = await Culture.findById(id)
+        if (culture) {
+            return res.json(culture)
+        } return res.status(404).send(`Culture with id of ${id} not found!`) // Technically an else statement
     } catch (error) {
         if (error.name === 'CastError' && error.kind === 'ObjectId') { /* Higher order error handling */
-            return res.status(404).send(`That child doesn't exist`)
+            return res.status(404).send(`That culture doesn't exist`)
         }
         return res.status(500).send(error.message)
     }
 }
 
 // CREATE - app.post
-const createChild = async (req, res) => {
+const createCulture = async (req, res) => {
     try {
-        const child = await new Child(req.body) /* Enables ability to update via tools like Thunderclient */
-        await child.save()
-        return res.status(201).json({child});
+        const culture = await new Culture(req.body) /* Enables ability to update via tools like Thunderclient */
+        await culture.save()
+        return res.status(201).json({culture});
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
 }
 // UPDATE - app.put (Most complex function, causes most problems)
-const updateChild = async (req, res) => {
+const updateCulture = async (req, res) => {
     try {
         let { id } = req.params;
-        let child = await Child.findByIdAndUpdate(id, req.body, 
+        let culture = await Culture.findByIdAndUpdate(id, req.body, 
             { new: true }) /* new: true, reloads page, shows NEW page */
-        if (child) {
-            return res.status(200).json(child)
+        if (culture) {
+            return res.status(200).json(culture)
         }
-        throw new Error("Child not found")
+        throw new Error("Culture not found")
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 // DELETE - app.delete
-const deleteChild = async (req, res) => {
+const deleteCulture = async (req, res) => {
     try {
         const { id } = req.params;
-        const deleted = await Child.findByIdAndDelete(id) /* Simply deletes the matching item */
+        const deleted = await Culture.findByIdAndDelete(id) /* Simply deletes the matching item */
         if (deleted) {
-            return res.status(200).send("Child deleted");
+            return res.status(200).send("Culture deleted");
         }
-        throw new Error("Child not found");
+        throw new Error("Culture not found");
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 
 module.exports = {
-    getAllChilds,
-    getChildById,
-    createChild,
-    updateChild,
-    deleteChild
+    getAllCultures,
+    getCultureById,
+    createCulture,
+    updateCulture,
+    deleteCulture
 }

@@ -4,15 +4,15 @@ const PORT = process.env.PORT || 3001
 const cors = require('cors')
 const db = require('./db')
 // Insert your database schema files here (??)
-const { Uncle, Child, Parent } = require('./models')
+const { Media, Culture, Tribe } = require('./models')
 
 /* Optional (?), for logging functionality */
 const bodyParser = require('body-parser')
 const logger = require('morgan')
 
-const parentController = require('./controllers/parentController')
-const childController = require('./controllers/childController')
-const uncleController = require('./controllers/uncleController')
+const tribeController = require('./controllers/tribeController')
+const cultureController = require('./controllers/cultureController')
+const mediaController = require('./controllers/mediaController')
 // require() imports and middleware here ^ ///////
 
 const app = express() 
@@ -47,51 +47,51 @@ app.get('/', (req, res)=> { // request and response arguements
 
 
 // INDEX - app.get
-app.get('/parents', parentController.getAllParents)
+app.get('/tribes', tribeController.getAllTribes)
 // SHOW - app.get
-app.get('/parents/:id', parentController.getParentById)
+app.get('/tribes/:id', tribeController.getTribeById)
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/parents', parentController.createParent) // .post will create stuff!
+app.post('/tribes', tribeController.createTribe) // .post will create stuff!
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
-app.put('/parents/:id', parentController.updateParent)
+app.put('/tribes/:id', tribeController.updateTribe)
 // DELETE - app.delete
-app.delete('/parents/:id', parentController.deleteParent)
+app.delete('/tribes/:id', tribeController.deleteTribe)
 
 /* body-parser is needed for CRUD stuff (?) */
 /* Browser can only GET, we need tools to do full CRUD */
 /* Create stuff with ThunderClient or something similar */
 
 // INDEX - app.get
-app.get('/childs', childController.getAllChilds)
+app.get('/cultures', cultureController.getAllCultures)
 // SHOW - app.get
-app.get('/childs/:id', childController.getChildById)
+app.get('/cultures/:id', cultureController.getCultureById)
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/childs', childController.createChild) // .post will create stuff!
+app.post('/cultures', cultureController.createCulture) // .post will create stuff!
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
-app.put('/childs/:id', childController.updateChild)
+app.put('/cultures/:id', cultureController.updateCulture)
 // DELETE - app.delete
-app.delete('/childs/:id', childController.deleteChild)
+app.delete('/cultures/:id', cultureController.deleteCulture)
 
 /* body-parser is needed for CRUD stuff (?) */
 /* Browser can only GET, we need tools to do full CRUD */
 /* Create stuff with ThunderClient or something similar */
 
 // INDEX - app.get
-app.get('/uncles', uncleController.getAllUncles)
+app.get('/medias', mediaController.getAllMedias)
 // SHOW - app.get
-app.get('/uncles/:id', uncleController.getUncleById)
+app.get('/medias/:id', mediaController.getMediaById)
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/uncles', uncleController.createUncle) // .post will create stuff!
+app.post('/medias', mediaController.createMedia) // .post will create stuff!
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
-app.put('/uncles/:id', uncleController.updateUncle)
+app.put('/medias/:id', mediaController.updateMedia)
 // DELETE - app.delete
-app.delete('/uncles/:id', uncleController.deleteUncle)
+app.delete('/medias/:id', mediaController.deleteMedia)
 
 /* body-parser is needed for CRUD stuff (?) */
 /* Browser can only GET, we need tools to do full CRUD */
