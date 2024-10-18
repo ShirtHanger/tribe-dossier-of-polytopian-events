@@ -225,7 +225,7 @@ const main = async () => {
   
   await Culture.insertMany(cultures)
   console.log(`============================`)
-  console.log(`CULTURES have been born! Thank the tribes!`)
+  console.log(`CULTURES have been documented! What wonderful tribes!`)
   console.log(`============================`)
 }
 

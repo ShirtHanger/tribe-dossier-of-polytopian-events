@@ -31,7 +31,7 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req, res)=> { // request and response arguements
-    res.send('Hello there! Welcome to my website!')
+    res.send('Welcome to the Tribe Dossier! Learn more about the cultures of the tribes of Polytopia (Owned and Developed by Midjiwan)')
 })
 
 

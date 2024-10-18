@@ -1,0 +1,24 @@
+{
+  "name": "tribe-dossier-of-polytopian-events",
+  "version": "1.0.0",
+  "description": "Since 2016 a unique little game (Which shall not be named (Just kidding I think they allow that)) helped me pass time and find joy in pretty awful parts of my life",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

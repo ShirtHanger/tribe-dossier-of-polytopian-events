@@ -20,3 +20,5 @@ Many of my stretch goals involve intelligent use of the data in my API. Includin
 *   Toggling between tribe skins
 *   Randomizing lore tidbits, accompanied by images
 *   A fourth "Strategies" model, where users can add to for each tribe via Axios.PUT
+
+(NOT AN OFFICIAL Polytopia PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MIDJIWAN.)

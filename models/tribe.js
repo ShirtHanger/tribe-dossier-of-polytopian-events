@@ -10,7 +10,7 @@ const tribeSchema = new Schema(
     colorHex: { type: String, required: true},
     headImageURL: { type: String, required: true },
     unitImageURL: { type: String, required: true },
-    buildingImageURL: { type: Boolean, required: true },
+    buildingImageURL: { type: String, required: true },
     isFreeTribe: { type: Boolean, required: true },
     isSpecialTribe: { type: Boolean, required: true },
     theme: { type: String, required: false },
@@ -20,7 +20,7 @@ const tribeSchema = new Schema(
       description: { type: String, required: false },
       headImageURL: { type: String, required: false },
       unitImageURL: { type: String, required: false },
-      buildingImageURL: { type: Boolean, required: false },
+      buildingImageURL: { type: String, required: false },
       theme: { type: String, required: false },
       natureAmbience: { type: String, required: false },
     }]
