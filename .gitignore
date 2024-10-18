@@ -1,0 +1,5 @@
+/node_modules
+.DS_Store
+/db/secret_password.js
+/personal_notes_folder
+/polytopia-assets
