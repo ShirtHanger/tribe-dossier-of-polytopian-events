@@ -42,15 +42,15 @@ const main = async () => {
         buildingImageURL: `https://files.catbox.moe/qi20yh.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/2/26/Xin-xi_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/13/Xin-xi_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/2/26/Xin-xi_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/13/Xin-xi_Nature.wav`,
         skins: [{
           name: `Sha-Po`,
           description: `In the misty hills around Mt. Xin-xi resides the Sha-po, a secretive legion of assassins trained in the arts of dealing a silent death to anyone who opposes the Xin-xi Empire.`,
           headImageURL: `https://files.catbox.moe/0j1h9h.png`,
           unitImageURL: `https://files.catbox.moe/2w76qo.png`,
           buildingImageURL: `https://files.catbox.moe/3938c7.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/1/1e/Xin-xi_Skin_Theme.ogg/revision/latest`
+          theme: `https://static.wikia.nocookie.net/supertribes/images/1/1e/Xin-xi_Skin_Theme.ogg`
         }]
       },
 
@@ -67,15 +67,15 @@ const main = async () => {
         buildingImageURL: `https://files.catbox.moe/3t2csw.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/9/9c/Imperius_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/0/0b/Imperius_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/9/9c/Imperius_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/0/0b/Imperius_Nature.wav`,
         skins: [{
           name: `Lirepacci`,
           description: `The scholarly Lirepacci have ventured out of Imperia to gain new perspectives on life through warfare, the study of other cultures, and hours of philosophical debate.`,
           headImageURL: `https://files.catbox.moe/q38s73.png`,
           unitImageURL: `https://files.catbox.moe/nuisvm.png`,
           buildingImageURL: `https://files.catbox.moe/kr5lpb.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/e/ea/Imperius_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/e/ea/Imperius_Skin_Theme.ogg`,
         }]
       },
 
@@ -92,15 +92,15 @@ const main = async () => {
         buildingImageURL: `https://files.catbox.moe/h18we0.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/2/21/Bardur_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Bardur_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/2/21/Bardur_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Bardur_Nature.wav`,
         skins: [{
           name: `Baergøff`,
           description: `The Baergøff are the Bardur's elite hunters. Clad in the sanctified pelt of their first Baerion kill, they're ready for anything!`,
           headImageURL: `https://files.catbox.moe/85qe7l.png`,
           unitImageURL: `https://files.catbox.moe/4au0m4.png`,
           buildingImageURL: `https://files.catbox.moe/xxy0x3.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/3/37/Bardur_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/3/37/Bardur_Skin_Theme.ogg`,
         }]
       },
 
@@ -117,15 +117,15 @@ const main = async () => {
         buildingImageURL: `https://files.catbox.moe/gowzl9.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/9/91/Oumaji_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c7/Oumaji_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/9/91/Oumaji_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c7/Oumaji_Nature.wav`,
         skins: [{
           name: `Khondor`,
           description: `This ancient order of Khondor Honor Guards has been around for ages, and they're here to return the Oumaji to a more "civilized" time.`,
           headImageURL: `https://files.catbox.moe/isckfs.png`,
           unitImageURL: `https://files.catbox.moe/ptwjer.png`,
           buildingImageURL: `https://files.catbox.moe/2lq60g.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/b/b9/Oumaji_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/b/b9/Oumaji_Skin_Theme.ogg`,
         }]
       },
 
@@ -142,15 +142,15 @@ const main = async () => {
         buildingImageURL: `https://files.catbox.moe/50fawq.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/e/ef/Kickoo_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/e/e3/Kickoo_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/e/ef/Kickoo_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/e/e3/Kickoo_Nature.wav`,
         skins: [{
           name: `Ragoo`,
           description: `The scourge of the waters, the bane of navies, the serpents of the seas - The Ragoo Pirates! Their fleets of ships and lust for plunder are ready to expand their operations from the Kickoo Isles to the rest of the Square!`,
           headImageURL: `https://files.catbox.moe/y1oq4e.png`,
           unitImageURL: `https://files.catbox.moe/p5jqyl.png`,
           buildingImageURL: `https://files.catbox.moe/ti6v1n.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/d/d7/Kickoo_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/d/d7/Kickoo_Skin_Theme.ogg`,
         }]
       },
 
@@ -167,15 +167,15 @@ const main = async () => {
         buildingImageURL: `https://files.catbox.moe/5gqhbm.png`,
         isFreeTribe: true,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/5/51/Hoodrick_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/b/b6/Hoodrick_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/5/51/Hoodrick_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/b/b6/Hoodrick_Nature.wav`,
         skins: [{
           name: `Yorthwober`,
           description: `Bands of the Hoodrick's finest sharpshooters and survivalists, the Yorthwober know their way around combat just as well as they do the hills and forests.`,
           headImageURL: `https://files.catbox.moe/7i8ccx.png`,
           unitImageURL: `https://files.catbox.moe/soc3vz.png`,
           buildingImageURL: `https://files.catbox.moe/rgxc7q.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/3/33/Hoodrick_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/3/33/Hoodrick_Skin_Theme.ogg`,
         }]
       },
 
@@ -193,15 +193,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/pbb4ef.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/5/56/Luxidoor_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/5/5f/Luxidoor_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/5/56/Luxidoor_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/5/5f/Luxidoor_Nature.wav`,
         skins: [{
           name: `Aumux`,
           description: `The Aumux Mercenaries are ruthless, effective, and more willing to destroy their foes, desolate the land, and empty the treasury of their employers in their insatiable, all-consuming greed.`,
           headImageURL: `https://files.catbox.moe/yuj49p.png`,
           unitImageURL: `https://files.catbox.moe/eang8o.png`,
           buildingImageURL: `https://files.catbox.moe/w9y73k.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/c/c4/Luxidoor_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/c/c4/Luxidoor_Skin_Theme.ogg`,
         }]
       },
 
@@ -218,15 +218,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/q9p6rz.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/3/36/Vengir_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/3f/Vengir_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/3/36/Vengir_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/3f/Vengir_Nature.wav`,
         skins: [{
           name: `Cultist`,
           description: `Fanatical Vengir Cultists devoted to Burzgor shrug off their flesh in the harrowing Thdkrkr Ritual to show their dedication to revenge.`,
           headImageURL: `https://files.catbox.moe/dp57m2.png`,
           unitImageURL: `https://files.catbox.moe/rhtj6x.png`,
           buildingImageURL: `https://files.catbox.moe/rvet41.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/5/5d/Vengir_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/5/5d/Vengir_Skin_Theme.ogg`,
         }]
       },
 
@@ -243,15 +243,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/8e6t3n.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/6/65/Zebasi_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/93/Zebasi_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/6/65/Zebasi_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/93/Zebasi_Nature.wav`,
         skins: [{
           name: `Anzala`,
           description: `The disciples of Anzala prefer the ways of art and expression over the scientific curiosity of their Zebasi siblings, and now they're here, with the Square as their canvas!`,
           headImageURL: `https://files.catbox.moe/ts0k33.png`,
           unitImageURL: `https://files.catbox.moe/jn4gtr.png`,
           buildingImageURL: `https://files.catbox.moe/rs30bu.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/4/4d/Zebasi_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/4/4d/Zebasi_Skin_Theme.ogg`,
   
         }]
       },
@@ -269,15 +269,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/puuwmi.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/f/f0/Ai-Mo_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Ai-Mo_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/f/f0/Ai-Mo_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Ai-Mo_Nature.wav`,
         skins: [{
           name: `To-Lï`,
           description: `The To Lï rigorously train their bodies and minds in their sturdy Binba forests, and are here to show their strength and discipline to the Square.`,
           headImageURL: `https://files.catbox.moe/ex37tx.png`,
           unitImageURL: `https://files.catbox.moe/w2nw1a.png`,
           buildingImageURL: `https://files.catbox.moe/qpk3ng.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/0/0f/Ai-Mo_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/0/0f/Ai-Mo_Skin_Theme.ogg`,
         }]
       },
 
@@ -294,15 +294,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/swxxxx.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/b/b4/Quetzali_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/9b/Quetzali_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/b/b4/Quetzali_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/9b/Quetzali_Nature.wav`,
         skins: [{
           name: `Iquaruz`,
           description: `Some Quetzali have taken their devotion to the Bird Gods to new heights as they try to transform themselves into actual birds. They look pretty but unfortunately they cannot fly.`,
           headImageURL: `https://files.catbox.moe/xqmak1.png`,
           unitImageURL: `https://files.catbox.moe/ecmupd.png`,
           buildingImageURL: `https://files.catbox.moe/e9pgwo.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/a/a8/Quetzali_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/a/a8/Quetzali_Skin_Theme.ogg`,
         }]
       },
 
@@ -319,15 +319,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/o6a3eo.png`,
         isFreeTribe: false,
         isSpecialTribe: false,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/d/d8/Y%C4%83dakk_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/39/Y%C4%83dakk_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/d/d8/Y%C4%83dakk_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/39/Y%C4%83dakk_Nature.wav`,
         skins: [{
           name: `Ürkaz`,
           description: `The gruff Ürkaz from the Khalee Highlands control the criminal underground of the Yădakk, and nothing is off limits are they establish economic domination of the Square!`,
           headImageURL: `https://files.catbox.moe/mopga7.png`,
           unitImageURL: `https://files.catbox.moe/w7ne4n.png`,
           buildingImageURL: `https://files.catbox.moe/9zzaca.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/8/82/Y%C4%83dakk_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/8/82/Y%C4%83dakk_Skin_Theme.ogg`,
         }]
       },
 
@@ -344,8 +344,8 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/b5ffb1.png`,
         isFreeTribe: false,
         isSpecialTribe: true,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/3/35/Aquarion_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c2/Aquarion_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/3/35/Aquarion_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c2/Aquarion_Nature.wav`,
       },
 
       // Elyrion
@@ -361,15 +361,15 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         buildingImageURL: `https://files.catbox.moe/yrxz7s.png`,
         isFreeTribe: false,
         isSpecialTribe: true,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/0/06/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/d/da/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/0/06/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/d/da/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Nature.wav`,
         skins: [{
           name: `₼idŋighţ`,
           description: `The ₼idŋighţ cult has been corrupted by the Shard of D'Naeh, a mystical relic fueled by darkness. Through necromancing practices they can summon demons from graves in the dark forests.`,
           headImageURL: `https://files.catbox.moe/s4d6bh.png`,
           unitImageURL: `https://files.catbox.moe/ahfo1i.png`,
           buildingImageURL: `https://files.catbox.moe/x5xyea.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/1/1f/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Skin_Theme.ogg/revision/latest`,
+          theme: `https://static.wikia.nocookie.net/supertribes/images/1/1f/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Skin_Theme.ogg`,
         }]
       },
 
@@ -384,8 +384,8 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         headImageURL: `https://files.catbox.moe/hqjr03.png`,
         unitImageURL: `https://files.catbox.moe/idstl6.png`,
         buildingImageURL: `https://files.catbox.moe/830ozo.png`,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/8/8a/Cymanti_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/6/68/Cymanti_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/8/8a/Cymanti_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/6/68/Cymanti_Nature.wav`,
         isFreeTribe: false,
         isSpecialTribe: true
       },
@@ -401,8 +401,8 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         headImageURL: `https://files.catbox.moe/53di8e.png`,
         unitImageURL: `https://files.catbox.moe/novx8w.png`,
         buildingImageURL: `https://files.catbox.moe/pxx5iv.png`,
-        theme: `https://static.wikia.nocookie.net/supertribes/images/d/d0/Polaris_Theme.wav/revision/latest`,
-        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/7/72/Polaris_Nature.wav/revision/latest`,
+        theme: `https://static.wikia.nocookie.net/supertribes/images/d/d0/Polaris_Theme.wav`,
+        natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/7/72/Polaris_Nature.wav`,
         isFreeTribe: false,
         isSpecialTribe: true
       }
