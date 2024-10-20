@@ -17,3 +17,18 @@ body {
     text-decoration: double;
     text-shadow: 2px 2px 4px black;
 }
+
+
+/* IDs */
+
+#tribe-data-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#tribe-lore-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -28,6 +28,22 @@ getCultureById = async (req, res) => {
     }
 }
 
+const getCultureByName = async (req, res) => {
+    try {
+        const tribeName = req.params.name
+        const culture = await Culture.find({ tribe_name: tribeName })
+        if (culture) {
+            return res.json(culture)
+        } return res.status(404).send(`Culture for a tribe with the name ${tribeName} not found!`) // Technically an else statement
+    } catch (error) {
+        if (error.name === 'CastError' && error.kind === 'ObjectId') { /* Higher order error handling */
+            return res.status(404).send(`That culture doesn't exist`)
+        }
+        return res.status(500).send(error.message)
+
+    }
+}
+
 // CREATE - app.post
 const createCulture = async (req, res) => {
     try {
@@ -71,5 +87,7 @@ module.exports = {
     getCultureById,
     createCulture,
     updateCulture,
-    deleteCulture
+    deleteCulture,
+
+    getCultureByName
 }

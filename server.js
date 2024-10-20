@@ -50,6 +50,9 @@ app.get('/', (req, res)=> { // request and response arguements
 app.get('/tribes', tribeController.getAllTribes)
 // SHOW - app.get
 app.get('/tribes/:id', tribeController.getTribeById)
+
+app.get('/tribes/name/:name', tribeController.getTribeByName)
+
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
 app.post('/tribes', tribeController.createTribe) // .post will create stuff!
@@ -67,6 +70,9 @@ app.delete('/tribes/:id', tribeController.deleteTribe)
 app.get('/cultures', cultureController.getAllCultures)
 // SHOW - app.get
 app.get('/cultures/:id', cultureController.getCultureById)
+
+app.get('/cultures/name/:name', cultureController.getCultureByName)
+
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
 app.post('/cultures', cultureController.createCulture) // .post will create stuff!
@@ -84,6 +90,8 @@ app.delete('/cultures/:id', cultureController.deleteCulture)
 app.get('/medias', mediaController.getAllMedias)
 // SHOW - app.get
 app.get('/medias/:id', mediaController.getMediaById)
+
+app.get('/medias/name/:name', mediaController.getMediaByName)
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
 app.post('/medias', mediaController.createMedia) // .post will create stuff!

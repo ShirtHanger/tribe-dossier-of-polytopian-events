@@ -28,6 +28,22 @@ getMediaById = async (req, res) => {
     }
 }
 
+const getMediaByName = async (req, res) => {
+    try {
+        const tribeName = req.params.name
+        const media = await Media.find({ tribe_name: tribeName })
+        if (media) {
+            return res.json(media)
+        } return res.status(404).send(`Media for a tribe with the name ${tribeName} not found!`) // Technically an else statement
+    } catch (error) {
+        if (error.name === 'CastError' && error.kind === 'ObjectId') { /* Higher order error handling */
+            return res.status(404).send(`That media doesn't exist`)
+        }
+        return res.status(500).send(error.message)
+
+    }
+}
+
 // CREATE - app.post
 const createMedia = async (req, res) => {
     try {
@@ -71,5 +87,7 @@ module.exports = {
     getMediaById,
     createMedia,
     updateMedia,
-    deleteMedia
+    deleteMedia,
+
+    getMediaByName
 }
