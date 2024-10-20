@@ -14,29 +14,36 @@ window.addEventListener('load', async () => {
         let tribeItem = document.createElement('article')
         tribeItem.classList.add('tribe-pull-button')
         tribeItem.innerHTML = `
+
         <div class="tribe-preview-pictures">
-        <img src="${tribe.unitImageURL}">
+        
         <img src="${tribe.headImageURL}">
-        <img src="${tribe.unitImageURL}">
+        
         </div>
-        <h3>${tribe.name}</h3>
-        <p>${tribe.description}</p>
-        <a href="tribeData.html">SELECT<a>`
+
+        <button id="tribe-link"><a href="tribeData.html">${tribe.name}<a></button>
+        <p class="tribe-preview-description">${tribe.description}</p>`
+
+
         tribeListContainer.appendChild(tribeItem)
+        tribeItem.style.backgroundColor = tribe.colorHex
     } 
 
     tribePullButtons = document.querySelectorAll('.tribe-pull-button')
+    tribeLinks = document.querySelectorAll('#tribe-link')
+
+
 
 
     /* This REFUSED to work until I added 'let' before each selector, redefines it apparently */
     /* Apparently, you're supposed to redeclare https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
-    for (let button of tribePullButtons) {
-        button.addEventListener('click', async () => {
+    for (let tribelink of tribeLinks) {
+        tribelink.addEventListener('click', async () => {
 
-            console.log('YOU CLICKED ON:', button.innerText)
-            let tribeResponseLoad = await axios.get(`http://localhost:3001/tribes/name/${button.innerText}`)
-            let cultureResponse = await axios.get(`http://localhost:3001/cultures/name/${button.innerText}`)
-            let mediaResponse = await axios.get(`http://localhost:3001/medias/name/${button.innerText}`)
+            console.log('YOU CLICKED ON:', tribelink.innerText)
+            let tribeResponseLoad = await axios.get(`http://localhost:3001/tribes/name/${tribelink.innerText}`)
+            let cultureResponse = await axios.get(`http://localhost:3001/cultures/name/${tribelink.innerText}`)
+            let mediaResponse = await axios.get(`http://localhost:3001/medias/name/${tribelink.innerText}`)
 
             /* Creates iterable arrays of tribe lore and it's cooresponding picture */
 
@@ -53,6 +60,9 @@ window.addEventListener('load', async () => {
             for (media of mediaLinks) {
                 mediaArray.push(media)
             }
+
+            console.log(loreArray)
+            console.log(mediaArray)
             
         })
     }

@@ -6,8 +6,8 @@ body {
     display: block;
     text-align: center;
     margin: auto;
-    background: linear-gradient(yellow, pink, pink); /* Gradiant background */
-    /* background: url('https://files.catbox.moe/ludi3y.jpeg'); */ /* Screenshot off my phone */
+    /* background: linear-gradient(yellow, pink, pink); */ /* Gradiant background */
+    background: url('https://files.catbox.moe/ludi3y.jpeg'); /* Screenshot off my phone */
     background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
@@ -26,6 +26,29 @@ body {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    color: blanchedalmond;
 }
 
+#tribe-link {
+    background-color: blueviolet;
+    border-radius: 35%;
+    margin: auto;
+}
+
+.tribe-preview-description {
+    width: auto;
+}
+
+article {
+    border-radius: 10%;
+    max-width: 30vw;
+    margin: auto;
+}
+
+article, p {
+    max-width: 20vw;
+}
+
+button {
+    background: rgba(204, 204, 204, 0.3);
+    font-size: 2rem;
+}
