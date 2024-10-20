@@ -6,10 +6,11 @@ body {
     display: block;
     text-align: center;
     margin: auto;
-    background: linear-gradient(yellow, pink, pink); /* Desktop Background */
-    background: url('https://files.catbox.moe/ludi3y.jpeg');
+    background: linear-gradient(yellow, pink, pink); /* Gradiant background */
+    /* background: url('https://files.catbox.moe/ludi3y.jpeg'); */ /* Screenshot off my phone */
     background-size: cover;
     background-position: center;
+    background-repeat: repeat-y;
     font-family: "Bangers", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -17,3 +18,14 @@ body {
     text-decoration: double;
     text-shadow: 2px 2px 4px black;
 }
+
+/* Struggling to figure out how to make this target the tribes on page 1 */
+
+.tribe-list-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: blanchedalmond;
+}
+

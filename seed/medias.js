@@ -234,7 +234,7 @@ const main = async () => {
               url_2024: `https://static.wikia.nocookie.net/supertribes/images/d/d0/Polaris_Tribe_Week_2024.png`,
           }
       },
-  ];
+  ]
   
 
   

@@ -2,7 +2,6 @@
 
 /* Containers */
 const tribeListContainer = document.querySelector('.tribe-list-container')
-const tribeList = document.querySelector('#tribe-list')
 
 /* Buttons */
 
@@ -12,10 +11,18 @@ window.addEventListener('load', async () => {
     let tribeResponseInitial = await axios.get(`http://localhost:3001/tribes`)
 
     for (tribe of tribeResponseInitial.data) {
-        let testTribeItem = document.createElement('li')
-        testTribeItem.classList.add('tribe-pull-button')
-        testTribeItem.innerHTML = `<a href="tribeData.html">TRIBE: ${tribe.name}<a>`
-        tribeList.appendChild(testTribeItem)
+        let tribeItem = document.createElement('article')
+        tribeItem.classList.add('tribe-pull-button')
+        tribeItem.innerHTML = `
+        <div class="tribe-preview-pictures">
+        <img src="${tribe.unitImageURL}">
+        <img src="${tribe.headImageURL}">
+        <img src="${tribe.unitImageURL}">
+        </div>
+        <h3>${tribe.name}</h3>
+        <p>${tribe.description}</p>
+        <a href="tribeData.html">SELECT<a>`
+        tribeListContainer.appendChild(tribeItem)
     } 
 
     tribePullButtons = document.querySelectorAll('.tribe-pull-button')
@@ -30,6 +37,22 @@ window.addEventListener('load', async () => {
             let tribeResponseLoad = await axios.get(`http://localhost:3001/tribes/name/${button.innerText}`)
             let cultureResponse = await axios.get(`http://localhost:3001/cultures/name/${button.innerText}`)
             let mediaResponse = await axios.get(`http://localhost:3001/medias/name/${button.innerText}`)
+
+            /* Creates iterable arrays of tribe lore and it's cooresponding picture */
+
+            let loreBlurbs = cultureResponse.data.lore
+            let mediaLinks = mediaResponse.data.mediaURLs
+
+            let loreArray = []
+            let mediaArray = []
+
+            for (blurb of loreBlurbs) {
+                loreArray.push(blurb)
+            }
+
+            for (media of mediaLinks) {
+                mediaArray.push(media)
+            }
             
         })
     }
@@ -43,3 +66,11 @@ window.addEventListener('load', async () => {
 /* EVENT LISTENERS */
 
 /* FUNCTIONS */
+
+function randNum(maxNum) {
+    /* Returns a random number between 0 and the length of given array */
+    /* Used to randomly iterate over tribe facts */
+
+    randIndex = Math.floor(Math.random() * maxNum) // Copied this from my Pokemon Album Prework, edited for this
+    return randIndex
+  }
