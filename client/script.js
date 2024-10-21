@@ -3,12 +3,6 @@
 /* Containers */
 const tribeListContainer = document.querySelector('.tribe-list-container')
 
-const loreTextDisplay = document.querySelector('#lore-text-display')
-const descriptionTextDisplay = document.querySelector('#description-text-display')
-const mediaDisplay = document.querySelector('#media-display')
-
-console.log(loreTextDisplay, descriptionTextDisplay, mediaDisplay) /* Returns null */
-
 /* Buttons */
 
 
@@ -52,39 +46,8 @@ window.addEventListener('load', async () => {
 
             console.log('YOU CLICKED ON:', selectedTribe)
 
-            let tribeDrill = await getTribeInfo('tribes', selectedTribe)
-            let cultureDrill = await getTribeInfo('cultures', selectedTribe)
-            let mediaDrill = await getTribeInfo('medias', selectedTribe)
-
-            /* Creates iterable arrays of tribe lore and it's cooresponding picture
-            Indexes should link together in accordance to the lore and its year */
-
-            let loreBlurbs = cultureDrill[0].lore
-            let mediaLinks = mediaDrill[0].mediaURLs
-
-            let loreArray = []
-            let mediaArray = []
-
-            /* I should point out: This is a for IN loop, not a for OF, for IN works for objects */
-            /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in */
-
-            for (blurb in loreBlurbs) {
-                iterateOverObject(loreBlurbs, blurb, loreArray)
-            }
-
-            for (media in mediaLinks) {
-                iterateOverObject(mediaLinks, media, mediaArray)
-            }
-
-
-            randomLore = randNum(loreArray.length)
-
-            /* Supposed to load content in the other HTML page
-            Doesn't work because these are null ??? */
-
-            loreTextDisplay.textContent = loreArray[randomLore]
-            descriptionTextDisplay.textContent = tribeDrill.description
-
+            sessionStorage.setItem('loadedTribe', selectedTribe)
+            /* Allows the tribe's name to be passed onto the tribeData.js file */
             
         })
     }
@@ -96,8 +59,6 @@ window.addEventListener('load', async () => {
 
 
 /* EVENT LISTENERS - LANDING PAGE */
-
-/* EVENT LISTENERS - TRIBE INFORMATION PAGE */
 
 /* FUNCTIONS */
 

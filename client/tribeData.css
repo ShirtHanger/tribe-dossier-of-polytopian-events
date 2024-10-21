@@ -40,6 +40,7 @@ p {
 
 #tribe-card {
     transform: scale(0.7);
+    border-radius: 10%;
 }
 
 #tribe-lore-container {
