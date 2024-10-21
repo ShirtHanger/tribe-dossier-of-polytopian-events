@@ -18,44 +18,86 @@ body {
     text-shadow: 2px 2px 4px black;
 }
 
+/* main {
+    display: flex;
+    flex-direction: column;
+} */
+
 p {
     color: whitesmoke;
-    width: 15vw;
+    width: auto;
     padding: 1.2rem;
     margin: auto;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: normal;
     background: black;
-    border-radius: 10%;
+    border-radius: 25%;
 }
 
 /* IDs */
 
+#description-text-display {
+    width: 30vw;
+}
+
 #tribe-data-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center; 
+    /* margin: 5vw; */
 }
 
 #tribe-card {
     transform: scale(0.7);
-    border-radius: 10%;
+    border-radius: 15%;
+    /* margin: 5vw; */
 }
 
 #tribe-lore-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-content: center; */
 }
+
+#media-display {
+    width: fit-content;
+    height: fit-content;
+}
+
 
 #lore-text-display {
-    width: 25vw;
+    font-size: large;
+    padding: 2rem;
 }
 
-#learn-more-button {
+button {
     background-color: navy;
     border-radius: 35%;
     margin: auto;
-    width: 10vw;
+    width: auto;
+    padding: 1.2rem;
+    font-size: larger;
+}
+
+#toggle-skin-button {
+    visibility: hidden;
+}
+
+
+@media screen and (max-width: 750px) {
+
+    #tribe-data-container {
+        flex-wrap: wrap;
+    }
+    .tribe-unit-display {
+        visibility: hidden;
+    }
+
+    #lore-text-display {
+        /* IDK, make it wider since units are hidden */
+    }
+
 }

@@ -308,7 +308,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
 
       // Yadakk
       {
-        name: `Yădakk`,
+        name: `Yadakk`,
         inspirations: [`Turkish`, `Mongolian`],
         leader: `Azurkaz`,
         description: `The Yădakk started out as a nomadic tribe in the beautiful harsh Khalee plains. Now they are the traders of the Square, connecting their empire with impressive trade routes.`,
@@ -322,7 +322,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
         theme: `https://static.wikia.nocookie.net/supertribes/images/d/d8/Y%C4%83dakk_Theme.wav`,
         natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/39/Y%C4%83dakk_Nature.wav`,
         skins: [{
-          name: `Ürkaz`,
+          name: `Urkaz`,
           description: `The gruff Ürkaz from the Khalee Highlands control the criminal underground of the Yădakk, and nothing is off limits are they establish economic domination of the Square!`,
           headImageURL: `https://static.wikia.nocookie.net/supertribes/images/b/bf/%C3%9Crkaz.png`,
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/2/2c/Urkaz_Rider.png`,

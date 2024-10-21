@@ -9,40 +9,69 @@ const descriptionTextDisplay = document.querySelector('#description-text-display
 const mediaDisplay = document.querySelector('#media-display')
 const tribeHeadDisplay = document.querySelector('#tribe-head-display')
 const tribeUnitDisplay = document.querySelectorAll('.tribe-unit-display')
+const tribeDataContainer = document.querySelector('#tribe-data-container')
 const tribeCard = document.querySelector('#tribe-card')
 const learnMoreButton = document.querySelector('#learn-more-button')
+const toggleSkinButton = document.querySelector('#toggle-skin-button')
+
+/* Variables to be accessed globally */
+
+/* I have done this so tribe data can be toggled via other event listeners, as global variables */
+
+let selectedTribe, tribeDrill, cultureDrill, mediaDrill
+
+let tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor
+
+let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic
+
+/* ON PAGE LOAD */
 
 window.addEventListener('load', async () => {
     console.log('PAGE IS LOADED')
     console.log('===================')
 
-    let selectedTribe = sessionStorage.getItem('loadedTribe')
+    selectedTribe = sessionStorage.getItem('loadedTribe')
     console.log('On the previous page, you selected', selectedTribe)
 
     learnMoreButton.textContent = `Learn more about the ${selectedTribe} tribe!`
 
     /* YIPEE! */
 
-    let tribeDrill = await getTribeInfo('tribes', selectedTribe)
-    let cultureDrill = await getTribeInfo('cultures', selectedTribe)
-    let mediaDrill = await getTribeInfo('medias', selectedTribe)
+    tribeDrill = await getTribeInfo('tribes', selectedTribe)
+    cultureDrill = await getTribeInfo('cultures', selectedTribe)
+    mediaDrill = await getTribeInfo('medias', selectedTribe)
 
-    let tribeHead = tribeDrill.headImageURL
-    let tribeDescription = tribeDrill.description
-    let tribeUnit = tribeDrill.unitImageURL
-    let tribeMusic = new Audio(tribeDrill.theme)
-    let tribeAmbience = new Audio(tribeDrill.natureAmbience)
-    let tribeColor = tribeDrill.colorHex
-
-    descriptionTextDisplay.textContent = tribeDescription
-    tribeHeadDisplay.setAttribute('src', tribeHead)
-
-    for (unit of tribeUnitDisplay) {
-        unit.setAttribute('src', tribeUnit)
+    if (tribeDrill.skins[0]) {
+        tribeSkinDrill = tribeDrill.skins[0]
     }
 
-    tribeCard.style.backgroundColor = tribeColor
+    // tribeSkinDrill = tribeDrill.skins[0] 
+    /* You may need to look at this when Midjiwan gives each tribe more than one skin (💀💀In 2028💀💀) */
 
+    /* Base tribe properties */
+
+     tribeHead = tribeDrill.headImageURL
+     tribeDescription = tribeDrill.description
+     tribeUnit = tribeDrill.unitImageURL
+     tribeMusic = new Audio(tribeDrill.theme)
+     tribeAmbience = new Audio(tribeDrill.natureAmbience)
+     tribeColor = tribeDrill.colorHex
+
+    /* Tribe skin properties (If skin exists) */
+    /* Define them outside of scope so they can be accessed globally */
+    if (tribeDrill.skins.length > 0) {
+        skinName = tribeSkinDrill.name
+        skinHead = tribeSkinDrill.headImageURL
+        skinDescription = tribeSkinDrill.description
+        skinUnit = tribeSkinDrill.unitImageURL
+        skinMusic = new Audio(tribeSkinDrill.theme)
+        toggleSkinButton.style.visibility = 'visible'
+        toggleSkinButton.textContent = `Check out the ${skinName} clan!`
+
+    }
+
+
+    setTribeCard(tribeDescription, tribeHead, tribeUnit, tribeColor)
     
     tribeAmbience.loop = true
     tribeAmbience.play()
@@ -51,6 +80,8 @@ window.addEventListener('load', async () => {
     
 })
 
+/* EVENT LISTENERS */
+
 learnMoreButton.addEventListener('click', async () => {
     let selectedTribe = sessionStorage.getItem('loadedTribe')
     console.log('Toggling lore of:', selectedTribe)
@@ -58,6 +89,13 @@ learnMoreButton.addEventListener('click', async () => {
     let mediaDrill = await getTribeInfo('medias', selectedTribe)
     loadTribeLore(cultureDrill, mediaDrill)
 })
+
+toggleSkinButton.addEventListener('click', async () => {
+    if (tribeSkinDrill) {
+        setTribeCard(skinDescription, skinHead, skinUnit, tribeColor)
+    }
+})
+
 
 
 /* FUNCTIONS */
@@ -92,8 +130,8 @@ function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
 
     if (mediaArray[randomLore].includes('images')) { /* Links like these are considered https://static.wikia.nocookie.net/supertribes/images/7/79/Bardur_Tribe_Moon_2022.jpg */
         mediaDisplay.innerHTML = `
-        <img src="${mediaArray[randomLore]}">
-        `
+        <img src="${mediaArray[randomLore]}" width="100%">` /* Image size MUST be adjusted here */
+
     } else {
         mediaDisplay.innerHTML = `
         <iframe src="${mediaArray[randomLore]}" frameborder="0" allowfullscreen></iframe>`
@@ -127,5 +165,17 @@ function loadTribeLore(cultureDrill, mediaDrill) {
     randomLore = randNum(loreArray.length)
 
     toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay)
+    
+}
+
+function setTribeCard(tribeDescription, tribeHead, tribeUnit, tribeColor) {
+    descriptionTextDisplay.textContent = tribeDescription
+    tribeHeadDisplay.setAttribute('src', tribeHead)
+
+    for (unit of tribeUnitDisplay) {
+    unit.setAttribute('src', tribeUnit)
+    }
+
+    tribeCard.style.backgroundColor = tribeColor
     
 }

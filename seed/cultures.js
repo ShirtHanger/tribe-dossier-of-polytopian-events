@@ -178,7 +178,7 @@ const main = async () => {
     // Yadakk
     {
       tribe_id: yadakk[0]._id,
-      tribe_name: `Yădakk`,
+      tribe_name: `Yadakk`,
       lore: {
       blurb_2019: `Most Yădakk merchants do business under the banner of the Horn Trading Company, the Square’s largest trade guild. Some like to say that the HTC is the real Yădakk government, since it even has a military!`,
       blurb_2020: `Despite usually being written off as simple merchants, the Yadakk invest plenty into both art and education, often building museums and schools in their trade hubs. Of course, most art and education revolve around bartering skills, desert survival, and Khamelk husbandry.`,
