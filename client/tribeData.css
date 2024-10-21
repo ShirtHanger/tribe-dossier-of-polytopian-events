@@ -52,3 +52,10 @@ p {
 #lore-text-display {
     width: 25vw;
 }
+
+#learn-more-button {
+    background-color: navy;
+    border-radius: 35%;
+    margin: auto;
+    width: 10vw;
+}
