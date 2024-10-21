@@ -1,4 +1,4 @@
-/* <!-- You MIGHT make a second page specifically to show off tribe data when user clicks a tribe --> */
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 /* Literally just copy-pasted my "We need a hero" code for body */
 
@@ -10,7 +10,7 @@ body {
     background: url('https://files.catbox.moe/ludi3y.jpeg');
     background-size: cover;
     background-position: center;
-    font-family: "Bangers", sans-serif;
+    font-family: "Poiret One", sans-serif;
     font-weight: 400;
     font-style: normal;
     text-decoration-color: black;
@@ -18,17 +18,36 @@ body {
     text-shadow: 2px 2px 4px black;
 }
 
+p {
+    color: whitesmoke;
+    width: 15vw;
+    padding: 1.2rem;
+    margin: auto;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background: black;
+    border-radius: 10%;
+}
+
 /* IDs */
 
 #tribe-data-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+#tribe-card {
+    transform: scale(0.7);
 }
 
 #tribe-lore-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 }
 
+#lore-text-display {
+    width: 25vw;
+}
