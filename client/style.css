@@ -18,21 +18,6 @@ body {
     text-shadow: 2px 2px 4px black;
 }
 
-article {
-    border-radius: 10%;
-    max-width: 35vw;
-    margin: auto;
-}
-
-article, p {
-    max-width: 20vw;
-    color: silver;
-}
-
-a {
-    text-decoration: none;
-}
-
 button {
     background: rgba(204, 204, 204, 0.1);
     font-size: 2rem;
@@ -46,18 +31,14 @@ button:hover {
 
 .tribe-list-container {
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-#tribe-link {
-    background-color: navy;
-    border-radius: 35%;
-    margin: auto;
-}
-
 .tribe-preview {
+    border-radius: 10%;
+    max-width: 35vw;
+    margin: auto;
     transform: scale(0.9);
 }
 
@@ -65,9 +46,11 @@ button:hover {
     background: black;
     border-radius: 10%;
     width: auto;
+    max-width: 23vw;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: normal;
+    color: silver;
 }
 
 
@@ -82,4 +65,27 @@ button:hover {
 
 .tribe-preview-picture:hover {
     transform: scale(0.8);
+}
+
+#tribe-link, #random-tribe-button {
+    background-color: navy;
+    border-radius: 35%;
+    margin: auto;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 800px) {
+    .tribe-list-container {
+        flex-direction: column;
+    }
+
+    .tribe-preview-description {
+        max-width: 35vw;
+    }
+
+    .tribe-preview {
+        transform: scale(1.0);
+        width: 50vw;
+    }
 }

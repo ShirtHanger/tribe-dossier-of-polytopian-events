@@ -11,17 +11,12 @@ body {
     background-size: cover;
     background-position: center;
     font-family: "Poiret One", sans-serif;
-    font-weight: 400;
+    font-weight: 200;
     font-style: normal;
     text-decoration-color: black;
     text-decoration: double;
     text-shadow: 2px 2px 4px black;
 }
-
-/* main {
-    display: flex;
-    flex-direction: column;
-} */
 
 p {
     color: whitesmoke;
@@ -29,7 +24,7 @@ p {
     padding: 1.2rem;
     margin: auto;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-style: normal;
     background: black;
     border-radius: 25%;
@@ -50,7 +45,7 @@ p {
 }
 
 #tribe-card {
-    transform: scale(0.7);
+    transform: scale(0.9);
     border-radius: 15%;
     /* margin: 5vw; */
 }
@@ -62,9 +57,18 @@ p {
     /* align-content: center; */
 }
 
+#media-container {
+    justify-content: center;
+}
+
 #media-display {
     width: fit-content;
     height: fit-content;
+}
+
+#media-caption {
+    min-width: 20vw;
+    align-content: center;
 }
 
 
@@ -82,12 +86,16 @@ button {
     font-size: larger;
 }
 
+#button-list {
+    width: 30vw;
+}
+
 #toggle-skin-button {
     visibility: hidden;
 }
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
 
     #tribe-data-container {
         flex-wrap: wrap;

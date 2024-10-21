@@ -2,8 +2,12 @@
 
 /* Containers */
 const tribeListContainer = document.querySelector('.tribe-list-container')
+let randomTribeArray = []
+let selectedTribe
 
 /* Buttons */
+
+randomTribeButton = document.querySelector('#random-tribe-button')
 
 
 window.addEventListener('load', async () => {
@@ -29,6 +33,8 @@ window.addEventListener('load', async () => {
 
         tribeListContainer.appendChild(tribeItem)
         tribeItem.style.backgroundColor = tribe.colorHex
+
+        randomTribeArray.push(tribe.name)
     } 
 
     tribePreview = document.querySelectorAll('.tribe-preview')
@@ -42,7 +48,7 @@ window.addEventListener('load', async () => {
     for (let tribelink of tribeLinks) {
         tribelink.addEventListener('click', async () => {
 
-            let selectedTribe = tribelink.innerText
+            selectedTribe = tribelink.innerText
 
             console.log('YOU CLICKED ON:', selectedTribe)
 
@@ -54,7 +60,17 @@ window.addEventListener('load', async () => {
 
 })
 
+randomTribeButton.addEventListener('click', async () => {
 
+            randomIndex = randNum(randomTribeArray.length)
+
+            selectedTribe = randomTribeArray[randomIndex]
+            console.log('YOU GOT:', selectedTribe)
+
+            sessionStorage.setItem('loadedTribe', selectedTribe)
+            /* Allows the tribe's name to be passed onto the tribeData.js file */
+    
+})
 
 
 

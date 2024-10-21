@@ -13,6 +13,8 @@ const tribeDataContainer = document.querySelector('#tribe-data-container')
 const tribeCard = document.querySelector('#tribe-card')
 const learnMoreButton = document.querySelector('#learn-more-button')
 const toggleSkinButton = document.querySelector('#toggle-skin-button')
+const leaderNameDisplay = document.querySelector('#leader-name-display')
+const mediaCaption = document.querySelector('#media-caption')
 
 /* Variables to be accessed globally */
 
@@ -20,7 +22,7 @@ const toggleSkinButton = document.querySelector('#toggle-skin-button')
 
 let selectedTribe, tribeDrill, cultureDrill, mediaDrill
 
-let tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor
+let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor, tribeLeader
 
 let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic
 
@@ -50,12 +52,14 @@ window.addEventListener('load', async () => {
 
     /* Base tribe properties */
 
-     tribeHead = tribeDrill.headImageURL
-     tribeDescription = tribeDrill.description
-     tribeUnit = tribeDrill.unitImageURL
-     tribeMusic = new Audio(tribeDrill.theme)
-     tribeAmbience = new Audio(tribeDrill.natureAmbience)
-     tribeColor = tribeDrill.colorHex
+    tribeName = tribeDrill.name
+    tribeHead = tribeDrill.headImageURL
+    tribeDescription = tribeDrill.description
+    tribeUnit = tribeDrill.unitImageURL
+    tribeLeader = tribeDrill.leader
+    tribeMusic = new Audio(tribeDrill.theme)
+    tribeAmbience = new Audio(tribeDrill.natureAmbience)
+    tribeColor = tribeDrill.colorHex
 
     /* Tribe skin properties (If skin exists) */
     /* Define them outside of scope so they can be accessed globally */
@@ -71,7 +75,7 @@ window.addEventListener('load', async () => {
     }
 
 
-    setTribeCard(tribeDescription, tribeHead, tribeUnit, tribeColor)
+    setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor)
     
     tribeAmbience.loop = true
     tribeAmbience.play()
@@ -92,7 +96,13 @@ learnMoreButton.addEventListener('click', async () => {
 
 toggleSkinButton.addEventListener('click', async () => {
     if (tribeSkinDrill) {
-        setTribeCard(skinDescription, skinHead, skinUnit, tribeColor)
+        if (tribeHeadDisplay.alt === tribeName) {
+            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor)
+            toggleSkinButton.textContent = `Go back to the ${tribeName} tribe!`
+        } else {
+            setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor)
+            toggleSkinButton.textContent = `Check out the ${skinName} clan!`
+        }
     }
 })
 
@@ -130,17 +140,19 @@ function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
 
     if (mediaArray[randomLore].includes('images')) { /* Links like these are considered https://static.wikia.nocookie.net/supertribes/images/7/79/Bardur_Tribe_Moon_2022.jpg */
         mediaDisplay.innerHTML = `
-        <img src="${mediaArray[randomLore]}" width="100%">` /* Image size MUST be adjusted here */
+        <img src="${mediaArray[randomLore]}" width="150%">` /* Image size MUST be adjusted here */
 
     } else {
         mediaDisplay.innerHTML = `
-        <iframe src="${mediaArray[randomLore]}" frameborder="0" allowfullscreen></iframe>`
+        <iframe width="560" height="315" src="${mediaArray[randomLore]}" frameborder="50" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
     }
 }
 
 /* Loads all content in second page, toggles when user requests different lore */
 
 function loadTribeLore(cultureDrill, mediaDrill) {
+
+    mediaCaption.textContent = `Life in the ${tribeName} empire`
 
     let loreBlurbs = cultureDrill.lore
     let mediaLinks = mediaDrill.mediaURLs
@@ -168,9 +180,11 @@ function loadTribeLore(cultureDrill, mediaDrill) {
     
 }
 
-function setTribeCard(tribeDescription, tribeHead, tribeUnit, tribeColor) {
+function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor) {
     descriptionTextDisplay.textContent = tribeDescription
+    leaderNameDisplay.textContent = tribeLeader
     tribeHeadDisplay.setAttribute('src', tribeHead)
+    tribeHeadDisplay.setAttribute('alt', tribeName)
 
     for (unit of tribeUnitDisplay) {
     unit.setAttribute('src', tribeUnit)
