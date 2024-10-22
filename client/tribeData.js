@@ -156,7 +156,7 @@ async function loadAllTribeData(selectedTribe) {
 
     populateTribeLore(cultureDrill, mediaDrill)
 
-    loadComments(commentsDrill)
+    loadAllComments(commentsDrill)
 }
 
 /* Loads all content in second page, toggles when user requests different lore */
@@ -205,11 +205,24 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
     
 }
 
-function loadComments(commentsDrill) {
+function loadAllComments(commentsDrill) {
+
+    commentsSectionContainer.innerHTML = `` /* Clears previous comment section */
+
     let allComments = commentsDrill.comments_section /* Array of objects */
     for (comment of allComments) {
-        console.log(comment.userName)
-        console.log(comment.comment)
+        let userName = comment.userName
+        let userComment = comment.comment
+
+        let commentFromDatabase = document.createElement('article')
+
+        commentFromDatabase.classList.add('user-comment-container')
+
+        commentFromDatabase.innerHTML = `
+        <h5 class="user-name">${userName} (10/22/24) </h5>
+        <p class="user-comment">${userComment}</p>
+        `
+        commentsSectionContainer.appendChild(commentFromDatabase)
     }
 }
 
