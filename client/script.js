@@ -37,8 +37,11 @@ window.addEventListener('load', async () => {
         randomTribeArray.push(tribe.name)
     } 
 
+    console.log(randomTribeArray)
+
     tribePreview = document.querySelectorAll('.tribe-preview')
     tribeLinks = document.querySelectorAll('#tribe-link')
+    sessionStorage.setItem('allTribes', randomTribeArray)
 
 
 

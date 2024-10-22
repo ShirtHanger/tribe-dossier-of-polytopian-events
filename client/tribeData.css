@@ -45,7 +45,7 @@ p {
 }
 
 #tribe-card {
-    transform: scale(0.9);
+    transform: scale(0.8);
     border-radius: 15%;
     /* margin: 5vw; */
 }
@@ -53,8 +53,8 @@ p {
 #tribe-lore-container {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
-    /* align-content: center; */
+    /* align-items: center; 
+     align-content: center; */
 }
 
 #media-container {
