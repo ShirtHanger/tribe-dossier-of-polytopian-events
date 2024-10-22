@@ -30,6 +30,17 @@ p {
     border-radius: 25%;
 }
 
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+li {
+    list-style: none;
+}ks
+
 /* IDs */
 
 #description-text-display {
@@ -77,7 +88,7 @@ p {
     padding: 2rem;
 }
 
-button {
+button, #submit-comment-button {
     background-color: navy;
     border-radius: 35%;
     margin: auto;

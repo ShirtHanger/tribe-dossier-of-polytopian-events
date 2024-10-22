@@ -28,8 +28,8 @@ const main = async () => {
       tribe_id: xinXi[0]._id,
       tribe_name: `Xin-Xi`,
       comments_section: [
-        { userName: 'ZenMaster42', comment: `Patience is OP.` },
-        { userName: 'Warlord_Wu', comment: `Strategy > numbers.` },
+        { userName: 'ZenMaster42', postTime: new Date("October 13, 2014 11:13:00"), comment:`Patience is OP.` },
+        { userName: 'Warlord_Wu', postTime: new Date("October 17, 2014 10:21:00"), comment:`Strategy > numbers.` },
       ],
     },
     // Imperius
@@ -37,8 +37,8 @@ const main = async () => {
       tribe_id: imperius[0]._id,
       tribe_name: `Imperius`,
       comments_section: [
-        { userName: 'RoyalistRex', comment: `All hail the crown.` },
-        { userName: 'EmperorX', comment: `Imperius? More like Imperi-us.` },
+        { userName: 'RoyalistRex', postTime: new Date("October 13, 2014 11:13:00"), comment:`All hail the crown.` },
+        { userName: 'EmperorX', postTime: new Date("October 17, 2014 10:21:00"), comment:`Imperius? More like Imperi-us.` },
       ],
     },
     // Bardur
@@ -46,8 +46,8 @@ const main = async () => {
       tribe_id: bardur[0]._id,
       tribe_name: `Bardur`,
       comments_section: [
-        { userName: 'WildAxe', comment: `Lumber huts solve everything.` },
-        { userName: 'FrostGiant', comment: `Lumber huts are overpowered` },
+        { userName: 'WildAxe', postTime: new Date("October 13, 2014 11:13:00"), comment:`Lumber huts solve everything.` },
+        { userName: 'FrostGiant', postTime: new Date("October 17, 2014 10:21:00"), comment:`Lumber huts are overpowered` },
       ],
     },
     // Oumaji
@@ -55,8 +55,8 @@ const main = async () => {
       tribe_id: oumaji[0]._id,
       tribe_name: `Oumaji`,
       comments_section: [
-        { userName: 'SandSurfer', comment: `No water, no problem.` },
-        { userName: 'DesertGhost', comment: `Trash tier` },
+        { userName: 'SandSurfer', postTime: new Date("October 13, 2014 11:13:00"), comment:`No water, no problem.` },
+        { userName: 'DesertGhost', postTime: new Date("October 17, 2014 10:21:00"), comment:`Trash tier` },
       ],
     },
     // Kickoo
@@ -64,8 +64,8 @@ const main = async () => {
       tribe_id: kickoo[0]._id,
       tribe_name: `Kickoo`,
       comments_section: [
-        { userName: 'JungleKing', comment: `Love the pirate skin! Keep it up Midjiwan!` },
-        { userName: 'TreeHugger', comment: `Living the green life.` },
+        { userName: 'JungleKing', postTime: new Date("October 13, 2014 11:13:00"), comment:`Love the pirate skin! Keep it up Midjiwan!` },
+        { userName: 'TreeHugger', postTime: new Date("October 17, 2014 10:21:00"), comment:`Living the green life.` },
       ],
     },
     // Hoodrick
@@ -73,8 +73,8 @@ const main = async () => {
       tribe_id: hoodrick[0]._id,
       tribe_name: `Hoodrick`,
       comments_section: [
-        { userName: 'SharpShooter', comment: `All people ever do is archer spam` },
-        { userName: 'RobinWho', comment: `I steal hearts, not just gold.` },
+        { userName: 'SharpShooter', postTime: new Date("October 13, 2014 11:13:00"), comment:`All people ever do is archer spam` },
+        { userName: 'RobinWho', postTime: new Date("October 17, 2014 10:21:00"), comment:`I steal hearts, not just gold.` },
       ],
     },
     // Luxidoor
@@ -82,8 +82,8 @@ const main = async () => {
       tribe_id: luxidoor[0]._id,
       tribe_name: `Luxidoor`,
       comments_section: [
-        { userName: 'MoneyBags', comment: `More gold, more power.` },
-        { userName: 'GildedGiant', comment: `Luxury never goes out of style.` },
+        { userName: 'MoneyBags', postTime: new Date("October 13, 2014 11:13:00"), comment:`More gold, more power.` },
+        { userName: 'GildedGiant', postTime: new Date("October 17, 2014 10:21:00"), comment:`Luxury never goes out of style.` },
       ],
     },
     // Vengir
@@ -91,8 +91,8 @@ const main = async () => {
       tribe_id: vengir[0]._id,
       tribe_name: `Vengir`,
       comments_section: [
-        { userName: 'IronFist', comment: `Might makes right.` },
-        { userName: 'GrudgeKeeper', comment: `Vengeance is a dish best served daily.` },
+        { userName: 'IronFist', postTime: new Date("October 13, 2014 11:13:00"), comment:`Might makes right.` },
+        { userName: 'GrudgeKeeper', postTime: new Date("October 17, 2014 10:21:00"), comment:`Vengeance is a dish best served daily.` },
       ],
     },
     // Zebasi
@@ -100,8 +100,8 @@ const main = async () => {
       tribe_id: zebasi[0]._id,
       tribe_name: `Zebasi`,
       comments_section: [
-        { userName: 'SavannaKing', comment: `Strong roots, high hopes.` },
-        { userName: 'PrideLeader', comment: `The herd protects its own.` },
+        { userName: 'SavannaKing', postTime: new Date("October 13, 2014 11:13:00"), comment:`Strong roots, high hopes.` },
+        { userName: 'PrideLeader', postTime: new Date("October 17, 2014 10:21:00"), comment:`The herd protects its own.` },
       ],
     },
     // Ai-Mo
@@ -109,9 +109,9 @@ const main = async () => {
       tribe_id: aiMo[0]._id,
       tribe_name: `Ai-Mo`,
       comments_section: [
-        { userName: 'SilentWhisper', comment: `Ya'll notice the To-Li fight with their fists? OP` },
-        { userName: 'LotusBloom', comment: `Peace is the true path.` },
-        { userName: 'AvatarFan', comment: `They look like Airbenders` },
+        { userName: 'SilentWhisper', postTime: new Date("October 13, 2014 11:13:00"), comment:`Ya'll notice the To-Li fight with their fists? OP` },
+        { userName: 'LotusBloom', postTime: new Date("October 17, 2014 10:21:00"), comment:`Peace is the true path.` },
+        { userName: 'AvatarFan', postTime: new Date("October 20, 2014 11:51:00"), comment:`They look like Airbenders` },
       ],
     },
     // Quetzali
@@ -119,10 +119,10 @@ const main = async () => {
       tribe_id: quetzali[0]._id,
       tribe_name: `Quetzali`,
       comments_section: [
-        { userName: 'StormCaller', comment: `Thunderous applause!` },
-        { userName: 'FeatheredFury', comment: `Flying high, striking fast.` },
-        { userName: 'BratWurst', comment: `Everybody gangsta till the Aquarion crab army shows up` },
-        { userName: 'FeatheredFury', comment: `@BratWurst Shut up` },
+        { userName: 'StormCaller', postTime: new Date("October 13, 2014 11:13:00"), comment:`Thunderous applause!` },
+        { userName: 'FeatheredFury', postTime: new Date("October 17, 2014 10:21:00"), comment:`Flying high, striking fast.` },
+        { userName: 'BratWurst', postTime: new Date("October 19, 2014 11:53:00"), comment:`Everybody gangsta till the Aquarion crab army shows up` },
+        { userName: 'FeatheredFury', postTime: new Date("October 21, 2014 10:00:00"), comment:`@BratWurst Shut up` },
       ],
     },
     // Yadakk
@@ -130,9 +130,9 @@ const main = async () => {
       tribe_id: yadakk[0]._id,
       tribe_name: `Yadakk`,
       comments_section: [
-        { userName: 'RoadRunner', comment: `All hail Genghis Khan!` },
-        { userName: 'RoadRunner', comment: `All hail Genghis Khan!` },
-        { userName: 'TradeMaster', comment: `@RoadRunner You commented that twice` },
+        { userName: 'RoadRunner', postTime: new Date("October 13, 2014 11:13:00"), comment:`All hail Genghis Khan!` },
+        { userName: 'RoadRunner', postTime: new Date("October 13, 2014 11:14:00"), comment:`All hail Genghis Khan!` },
+        { userName: 'TradeMaster', postTime: new Date("October 14, 2014 10:21:00"), comment:`@RoadRunner You commented that twice` },
       ],
     },
     // Aquarion
@@ -140,8 +140,8 @@ const main = async () => {
       tribe_id: aquarion[0]._id,
       tribe_name: `Aquarion`,
       comments_section: [
-        { userName: 'TideTamer', comment: `The Jellyfish are hella OP` },
-        { userName: 'DeepDiver', comment: `The ocean is my playground.` },
+        { userName: 'TideTamer', postTime: new Date("October 13, 2014 11:13:00"), comment:`The Jellyfish are hella OP` },
+        { userName: 'DeepDiver', postTime: new Date("October 17, 2014 10:21:00"), comment:`The ocean is my playground.` },
       ],
     },
     // Elyrion
@@ -149,8 +149,8 @@ const main = async () => {
       tribe_id: elyrion[0]._id,
       tribe_name: `∑∫ỹriȱŋ`,
       comments_section: [
-        { userName: 'MysticMage', comment: `Dragon Spam all the way` },
-        { userName: 'StarSeeker', comment: `Why do they have archers if they cut down forests? Are they stupid?` },
+        { userName: 'MysticMage', postTime: new Date("October 13, 2014 11:13:00"), comment:`Dragon Spam all the way` },
+        { userName: 'StarSeeker', postTime: new Date("October 17, 2014 10:21:00"), comment:`Why do they have archers if they cut down forests? Are they stupid?` },
       ],
     },
     // Cymanti
@@ -158,8 +158,8 @@ const main = async () => {
       tribe_id: cymanti[0]._id,
       tribe_name: `Cymanti`,
       comments_section: [
-        { userName: 'HiveMind', comment: `Only noobs use this tribe` },
-        { userName: 'BugLord', comment: `Creepy crawlies everywhere!` },
+        { userName: 'HiveMind', postTime: new Date("October 13, 2014 11:13:00"), comment:`Only noobs use this tribe` },
+        { userName: 'BugLord', postTime: new Date("October 17, 2014 10:21:00"), comment:`Creepy crawlies everywhere!` },
       ],
     },
     // Polaris
@@ -167,8 +167,8 @@ const main = async () => {
       tribe_id: polaris[0]._id,
       tribe_name: `Polaris`,
       comments_section: [
-        { userName: 'FrostBite', comment: `Everybody Gangsta till the Polaris player puts down the Ice Bank` },
-        { userName: 'CajunSamurai', comment: `I HATE THE ICE ARCHERS!!!!!` },
+        { userName: 'FrostBite', postTime: new Date("October 13, 2014 11:13:00"), comment:`Everybody Gangsta till the Polaris player puts down the Ice Bank` },
+        { userName: 'CajunSamurai', postTime: new Date("October 17, 2014 10:21:00"), comment:`I HATE THE ICE ARCHERS!!!!!` },
       ],
     },
   ]

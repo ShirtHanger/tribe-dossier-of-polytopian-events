@@ -8,6 +8,7 @@ const commentSchema = new Schema(
     comments_section: [
         {
            userName: { type: String, required: true },
+           postTime : {type: Date, required: true },
            comment: { type: String, required: true },
         }
     ]

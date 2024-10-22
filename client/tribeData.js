@@ -16,7 +16,14 @@ const toggleSkinButton = document.querySelector('#toggle-skin-button')
 const leaderNameDisplay = document.querySelector('#leader-name-display')
 const mediaCaption = document.querySelector('#media-caption')
 const randomTribeButton = document.querySelector('#random-tribe-button')
+
+/* Comments section */
+
 const commentsSectionContainer = document.querySelector('.comments-section-container')
+const submitCommentButton = document.querySelector('#submit-comment-button')
+const userNameInput = document.querySelector('#user-name-input')
+const userCommentInput = document.querySelector('#user-comment-input')
+
 
 /* Variables to be accessed globally */
 
@@ -95,6 +102,23 @@ randomTribeButton.addEventListener('click', async () => {
 
 })
 
+submitCommentButton.addEventListener('click', async () => {
+    let newUserName = userNameInput.value
+    let newComment = userCommentInput.value
+    let currentTime = Date.now()
+
+    let newPost = {
+        userName: newUserName,
+        postTime: currentTime,
+        "comment": newComment,
+        }
+
+
+    console.log(newPost)
+
+    // let insertNewComment = await axios.put(`http://localhost:3001/${category}/name/${tribeName}`)
+})
+
 
 
 /* FUNCTIONS */
@@ -126,8 +150,6 @@ async function loadAllTribeData(selectedTribe) {
     tribeDescription = tribeDrill.description
     tribeUnit = tribeDrill.unitImageURL
     tribeLeader = tribeDrill.leader
-    tribeMusic = new Audio(tribeDrill.theme)
-    tribeAmbience = new Audio(tribeDrill.natureAmbience)
     tribeColor = tribeDrill.colorHex
     currentTribeID = tribeDrill._id
     console.log(currentTribeID)
@@ -150,9 +172,8 @@ async function loadAllTribeData(selectedTribe) {
 
 
     setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor)
-    
-    tribeAmbience.loop = true
-    tribeAmbience.play()
+
+    playAmbience(tribeDrill)
 
     populateTribeLore(cultureDrill, mediaDrill)
 
@@ -213,13 +234,15 @@ function loadAllComments(commentsDrill) {
     for (comment of allComments) {
         let userName = comment.userName
         let userComment = comment.comment
+        let commentDate = new Date(comment.postTime) /* Took me a minute to realize I had to redefine */
+        console.log(commentDate)
 
         let commentFromDatabase = document.createElement('article')
 
         commentFromDatabase.classList.add('user-comment-container')
 
         commentFromDatabase.innerHTML = `
-        <h5 class="user-name">${userName} (10/22/24) </h5>
+        <h5 class="user-name"><strong>${userName}<strong> - (${commentDate.toDateString()})</h5>
         <p class="user-comment">${userComment}</p>
         `
         commentsSectionContainer.appendChild(commentFromDatabase)
@@ -238,6 +261,20 @@ function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
         mediaDisplay.innerHTML = `
         <iframe width="560" height="315" src="${mediaArray[randomLore]}" frameborder="50" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
     }
+}
+
+function playAmbience(tribeDrill) {
+
+    if (tribeAmbience) { /* Pauses previous audio if loading from a random tribe */
+        tribeAmbience.pause()
+    }
+
+    tribeMusic = new Audio(tribeDrill.theme)
+    tribeAmbience = new Audio(tribeDrill.natureAmbience)
+    
+    tribeAmbience.loop = true
+    tribeAmbience.play()
+
 }
 
 function randNum(maxNum) {
