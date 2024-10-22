@@ -1,8 +1,8 @@
-/* <!-- You MIGHT make a second page specifically to show off tribe data when user clicks a tribe when user clicks a tribe --> */
-
 /* After wracking my head trying to do it all in ONE JavaScript file, I decided to do two
 I knew I could import so I did some googling and discovered sessionStorage
 https://www.w3schools.com/jsref/prop_win_sessionstorage.asp */
+
+
 
 const loreTextDisplay = document.querySelector('#lore-text-display')
 const descriptionTextDisplay = document.querySelector('#description-text-display')
@@ -16,6 +16,7 @@ const toggleSkinButton = document.querySelector('#toggle-skin-button')
 const leaderNameDisplay = document.querySelector('#leader-name-display')
 const mediaCaption = document.querySelector('#media-caption')
 const randomTribeButton = document.querySelector('#random-tribe-button')
+const commentsSectionContainer = document.querySelector('.comments-section-container')
 
 /* Variables to be accessed globally */
 
@@ -27,7 +28,7 @@ let selectedTribe, randomTribeArray
 
 /* Response drills */
 
-let tribeDrill, cultureDrill, mediaDrill
+let tribeDrill, cultureDrill, mediaDrill, currentTribeID
 
 /* Main tribe info */
 
@@ -56,53 +57,7 @@ window.addEventListener('load', async () => {
 
     loadAllTribeData(selectedTribe)
 
-    // learnMoreButton.textContent = `Learn more about the ${selectedTribe} tribe!`
-
-    // tribeDrill = await getTribeInfo('tribes', selectedTribe)
-    // cultureDrill = await getTribeInfo('cultures', selectedTribe)
-    // mediaDrill = await getTribeInfo('medias', selectedTribe)
-
-    // if (tribeDrill.skins[0]) {
-    //     tribeSkinDrill = tribeDrill.skins[0]
-    // }
-
-    // // tribeSkinDrill = tribeDrill.skins[0] 
-    // /* You may need to look at this when Midjiwan gives each tribe more than one skin (💀💀In 2028💀💀) */
-
-    // /* Base tribe properties */
-
-    // tribeName = tribeDrill.name
-    // tribeHead = tribeDrill.headImageURL
-    // tribeDescription = tribeDrill.description
-    // tribeUnit = tribeDrill.unitImageURL
-    // tribeLeader = tribeDrill.leader
-    // tribeMusic = new Audio(tribeDrill.theme)
-    // tribeAmbience = new Audio(tribeDrill.natureAmbience)
-    // tribeColor = tribeDrill.colorHex
-
-    // /* Tribe skin properties (If skin exists) */
-    // /* Define them outside of scope so they can be accessed globally */
-    // if (tribeDrill.skins.length > 0) {
-    //     skinName = tribeSkinDrill.name
-    //     skinHead = tribeSkinDrill.headImageURL
-    //     skinDescription = tribeSkinDrill.description
-    //     skinUnit = tribeSkinDrill.unitImageURL
-    //     skinMusic = new Audio(tribeSkinDrill.theme)
-    //     toggleSkinButton.style.visibility = 'visible'
-    //     toggleSkinButton.textContent = `Check out the ${skinName} clan!`
-
-    // } else {
-    //     toggleSkinButton.style.visibility = 'hidden'
-    //     toggleSkinButton.textContent = ``
-    // }
-
-
-    // setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor)
-    
-    // tribeAmbience.loop = true
-    // tribeAmbience.play()
-
-    // populateTribeLore(cultureDrill, mediaDrill)
+    /* Pull music function OUT of this, run it afterward, or make a different music button */
     
 })
 
@@ -156,12 +111,12 @@ async function loadAllTribeData(selectedTribe) {
     tribeDrill = await getTribeInfo('tribes', selectedTribe)
     cultureDrill = await getTribeInfo('cultures', selectedTribe)
     mediaDrill = await getTribeInfo('medias', selectedTribe)
+    commentsDrill = await getTribeInfo('comments', selectedTribe)
 
     if (tribeDrill.skins[0]) {
         tribeSkinDrill = tribeDrill.skins[0]
     }
 
-    // tribeSkinDrill = tribeDrill.skins[0] 
     /* You may need to look at this when Midjiwan gives each tribe more than one skin (💀💀In 2028💀💀) */
 
     /* Base tribe properties */
@@ -174,6 +129,8 @@ async function loadAllTribeData(selectedTribe) {
     tribeMusic = new Audio(tribeDrill.theme)
     tribeAmbience = new Audio(tribeDrill.natureAmbience)
     tribeColor = tribeDrill.colorHex
+    currentTribeID = tribeDrill._id
+    console.log(currentTribeID)
 
     /* Tribe skin properties (If skin exists) */
     /* Define them outside of scope so they can be accessed globally */
@@ -198,6 +155,8 @@ async function loadAllTribeData(selectedTribe) {
     tribeAmbience.play()
 
     populateTribeLore(cultureDrill, mediaDrill)
+
+    loadComments(commentsDrill)
 }
 
 /* Loads all content in second page, toggles when user requests different lore */
@@ -244,6 +203,14 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
 
     tribeCard.style.backgroundColor = tribeColor
     
+}
+
+function loadComments(commentsDrill) {
+    let allComments = commentsDrill.comments_section /* Array of objects */
+    for (comment of allComments) {
+        console.log(comment.userName)
+        console.log(comment.comment)
+    }
 }
 
 /* Sets the lore properties of tribe data page */

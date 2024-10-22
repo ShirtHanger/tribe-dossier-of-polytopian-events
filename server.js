@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001
 const cors = require('cors')
 const db = require('./db')
 // Insert your database schema files here (??)
-const { Media, Culture, Tribe } = require('./models')
+const { Comment, Media, Culture, Tribe } = require('./models')
 
 /* Optional (?), for logging functionality */
 const bodyParser = require('body-parser')
@@ -13,6 +13,7 @@ const logger = require('morgan')
 const tribeController = require('./controllers/tribeController')
 const cultureController = require('./controllers/cultureController')
 const mediaController = require('./controllers/mediaController')
+const commentController = require('./controllers/commentController')
 // require() imports and middleware here ^ ///////
 
 const app = express() 
@@ -100,6 +101,25 @@ app.post('/medias', mediaController.createMedia) // .post will create stuff!
 app.put('/medias/:id', mediaController.updateMedia)
 // DELETE - app.delete
 app.delete('/medias/:id', mediaController.deleteMedia)
+
+/* body-parser is needed for CRUD stuff (?) */
+/* Browser can only GET, we need tools to do full CRUD */
+/* Create stuff with ThunderClient or something similar */
+
+// INDEX - app.get
+app.get('/comments', commentController.getAllComments)
+// SHOW - app.get
+app.get('/comments/:id', commentController.getCommentById)
+
+app.get('/comments/name/:name', commentController.getCommentByName)
+// CREATE - app.post
+/* POST Goes to INDEX route because we are creating something new */
+app.post('/comments', commentController.createComment) // .post will create stuff!
+/* UPDATE and DELETE must go in show route since we are updating a specific item */
+// UPDATE - app.put
+app.put('/comments/:id', commentController.updateComment)
+// DELETE - app.delete
+app.delete('/comments/:id', commentController.deleteComment)
 
 /* body-parser is needed for CRUD stuff (?) */
 /* Browser can only GET, we need tools to do full CRUD */

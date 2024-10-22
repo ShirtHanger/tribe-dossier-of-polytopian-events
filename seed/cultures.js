@@ -16,7 +16,7 @@ const main = async () => {
   const zebasi = await Tribe.find({ name: `Zebasi` })
   const aiMo = await Tribe.find({ name: `Ai-Mo` })
   const quetzali = await Tribe.find({ name: `Quetzali` })
-  const yadakk = await Tribe.find({ name: `Yădakk` })
+  const yadakk = await Tribe.find({ name: `Yadakk` })
   const aquarion = await Tribe.find({ name: `Aquarion` })
   const elyrion = await Tribe.find({ name: `∑∫ỹriȱŋ` })
   const cymanti = await Tribe.find({ name: `Cymanti` })

@@ -1,6 +1,6 @@
 /* Here's how you import the medias database into our controller */
 
-const { Media, Culture, Tribe } = require('../models')
+const { Comment, Media, Culture, Tribe } = require('../models')
 
 // INDEX - app.get
 const getAllMedias = async (req, res) => {
