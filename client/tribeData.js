@@ -37,9 +37,7 @@ let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience
 
 let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic
 
-/* Other (Random tribe button) */
-
-let newTribe
+/* Other (Contents TBA) */
 
 /* ON PAGE LOAD */
 
@@ -133,7 +131,7 @@ randomTribeButton.addEventListener('click', async () => {
 
     randomIndex = randNum(randomTribeArray.length)
 
-    newTribe = randomTribeArray[randomIndex]
+    let newTribe = randomTribeArray[randomIndex]
     console.log('Swapping to:', newTribe)
 
     loadAllTribeData(newTribe)
