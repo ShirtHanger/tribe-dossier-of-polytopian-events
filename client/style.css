@@ -11,7 +11,7 @@ body {
     background-position: center;
     background-repeat: repeat-y;
     font-family: "Poiret One";
-    font-weight: 400;
+    font-weight: 200;
     font-style: normal;
     text-decoration-color: black;
     text-decoration: double;
@@ -19,18 +19,29 @@ body {
 }
 
 button {
-    font-size: 2rem;
+    font-size: 1.5rem;
     transition: transform 0.5s;
+    background: rgba(52, 120, 238, 0.7); /* Makes the background of the button see-through, but not text */
+    border-radius: 35%;
+    color: silver;
+    margin: auto;
+    width: auto;
 }
 
 button:hover {
     transform: scale(1.1);
+    background: rgba(204, 204, 204, 0.7);
+}
+
+a {
+    text-decoration: none;
+    color: silver;
 }
 
 
 .tribe-list-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -42,10 +53,12 @@ button:hover {
 }
 
 .tribe-preview-description {
-    background: black;
-    border-radius: 10%;
+    background: rgba(17, 17, 17, 0.85);
+    border-radius: 20%;
     width: auto;
-    max-width: 23vw;
+    max-width: 17vw;
+    margin: auto;
+    padding: 2vw;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -55,7 +68,7 @@ button:hover {
 
 .tribe-preview-picture {
     justify-items: center;
-    background: lightskyblue;
+    background: rgba(52, 120, 238, 0.7);
     border: 6px solid whitesmoke;
     border-radius: 100%;
     transform: scale(0.6);
@@ -67,12 +80,6 @@ button:hover {
 }
 
 #tribe-link, #random-tribe-button {
-    /* background-color: #3478C6; */
-    background: rgba(52, 120, 238, 0.7); /* Trying to make the background of the button see-through, but not text */
-    border-radius: 35%;
-    color: silver;
-    margin: auto;
-    text-decoration: none;
 }
 
 

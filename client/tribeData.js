@@ -83,9 +83,18 @@ window.addEventListener('load', async () => {
     console.log('List of random tribes!')
     console.log(randomTribeArray)
 
-    /* YIPEE! */
+
 
     loadAllTribeData(selectedTribe)
+
+    /* After loading data at first, shuffles a random tribe into the selectedTribe variable */
+    /* When user reloads the page, they will be greeted by an entirely new tribe! */
+
+    randomIndex = randNum(randomTribeArray.length) /* Yanks array of all tribes from previous page */
+
+    selectedTribe = randomTribeArray[randomIndex]
+
+    sessionStorage.setItem('loadedTribe', selectedTribe)
     
 })
 
@@ -107,8 +116,8 @@ toggleSkinButton.addEventListener('click', async () => {
             toggleSkinButton.textContent = `Go back to the ${tribeName} tribe!`
             musicButton.textContent = `Hear some ${tribeName} music!`
             console.log(tribeInspirations) 
-            /* Claims tribeInspirations is not iterable when swapping into the skin. IDK, ask prof tommorow */
-            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor)
+            
+            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor, tribeInspirations)
         } else { /* It is on the skin, swap to original tribe */
             toggleSkinButton.textContent = `Check out the ${skinName} clan!`
             musicButton.textContent = `Hear some ${skinName} music!`
@@ -367,7 +376,7 @@ function loadAllComments(commentsDrill, tribeName) {
         commentFromDatabase.classList.add('user-comment-container')
 
         commentFromDatabase.innerHTML = `
-        <h5 class="user-name"><strong>${userName}<strong> - (${commentDate.toDateString()})</h5>
+        <h5 class="user-name">${userName} - (${commentDate.toDateString()})</h5>
         <p class="user-comment">${userComment}</p>
         `
         commentsSectionContainer.appendChild(commentFromDatabase)

@@ -26,7 +26,7 @@ p {
     font-family: "Roboto", sans-serif;
     font-weight: 200;
     font-style: normal;
-    background: black;
+    background: rgba(17, 17, 17, 0.85);
     border-radius: 25%;
 }
 
@@ -44,6 +44,24 @@ li {
 a {
     text-decoration: none;
 }
+
+button {
+    background: rgba(52, 120, 238, 0.7); /* Makes the background of the button see-through, but not text */
+    border-radius: 35%;
+    border-style: outset;
+    color: silver;
+    margin: auto;
+    width: auto;
+    padding: 1.2rem;
+    font-size: larger;
+    transition: transform 0.5s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: rgba(204, 204, 204, 0.7);
+}
+
 
 /* IDs */
 
@@ -65,11 +83,16 @@ a {
     /* margin: 5vw; */
 }
 
-#tribe-lore-container {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; 
-     align-content: center; */
+#tribe-head-display {
+    background: rgba(52, 120, 238, 0.7);
+    border: 6px solid whitesmoke;
+    border-radius: 100%;
+    transform: scale(0.8);
+    transition: transform 0.5s;
+}
+
+#tribe-head-display:hover {
+    transform: scale(1.0);
 }
 
 #media-container {
@@ -86,31 +109,90 @@ a {
     align-content: center;
 }
 
+#tribe-lore-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; 
+     align-content: center; */
+}
+
+#lore-and-lore-button-container {
+    background: rgba(17, 17, 17, 0.85);
+    border-radius: 25%;
+}
+
 
 #lore-text-display {
     font-size: large;
     padding: 2rem;
-}
-
-button, #submit-comment-button {
-    /* background-color: #3478C6; */
-    background: rgba(52, 120, 238, 0.7); /* Trying to make the background of the button see-through, but not text */
-    border-radius: 35%;
-    color: silver;
-    margin: auto;
-    width: auto;
-    padding: 1.2rem;
-    font-size: larger;
+    background: none;
 }
 
 #button-list {
     width: 30vw;
 }
 
+#learn-more-button {
+    width: auto;
+    margin: auto;
+}
+
+
 #toggle-skin-button {
     visibility: hidden;
 }
 
+
+/* Comments section stuff */
+
+#comment-submit-container {
+    background: rgba(35, 37, 41, 0.7);
+    border-radius: 10%;
+    margin: 0vw 20vw 0vw 20vw;
+}
+
+.comments-section-container {
+    background: rgba(7, 150, 7, 0.514);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20%;
+    align-items: center;
+    margin: 5vw 12vw 5vw 12vw;
+}
+
+.comment-data-field {
+    border-radius: 10%;
+    border-style: groove;
+}
+
+#user-name-input {
+    
+}
+
+#user-comment-input {
+    /* padding: 20vh; */
+    height: 10vh;
+    width: 20vw;
+}
+
+.user-comment-container {
+    justify-content: center;
+}
+
+.user-name {
+    background: red;
+    width: auto;
+    border-style: groove;
+    border-radius: 25%;
+}
+
+.user-comment {
+    border-style: groove;
+    border-radius: 25%;
+
+}
+
+/* Mobile design */
 
 @media screen and (max-width: 800px) {
 
