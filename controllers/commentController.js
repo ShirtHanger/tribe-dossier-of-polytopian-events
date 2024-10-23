@@ -68,6 +68,21 @@ const updateComment = async (req, res) => {
         return res.status(500).send(error.message);
     }
 }
+
+const updateCommentByName = async (req, res) => {
+    try {
+        let tribeName = req.params.name
+        let comment = await Comment.findOneAndUpdate({ tribe_name: tribeName }, req.body, 
+            { new: true }) /* new: true, reloads page, shows NEW page */
+        if (comment) {
+            return res.status(200).json(comment)
+        }
+        throw new Error("Comment not found")
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
 // DELETE - app.delete
 const deleteComment = async (req, res) => {
     try {
@@ -89,5 +104,6 @@ module.exports = {
     updateComment,
     deleteComment,
 
-    getCommentByName
+    getCommentByName,
+    updateCommentByName
 }

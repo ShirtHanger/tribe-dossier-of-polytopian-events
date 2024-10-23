@@ -118,6 +118,7 @@ app.post('/comments', commentController.createComment) // .post will create stuf
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
 app.put('/comments/:id', commentController.updateComment)
+app.put('/comments/name/:name', commentController.updateCommentByName)
 // DELETE - app.delete
 app.delete('/comments/:id', commentController.deleteComment)
 

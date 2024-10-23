@@ -17,12 +17,15 @@ const leaderNameDisplay = document.querySelector('#leader-name-display')
 const mediaCaption = document.querySelector('#media-caption')
 const randomTribeButton = document.querySelector('#random-tribe-button')
 
+const inspirationsList = document.querySelector('#inspirations-list')
+
 /* Comments section */
 
 const commentsSectionContainer = document.querySelector('.comments-section-container')
 const submitCommentButton = document.querySelector('#submit-comment-button')
 const userNameInput = document.querySelector('#user-name-input')
 const userCommentInput = document.querySelector('#user-comment-input')
+const commentFieldLabel = document.querySelector('#comment-field-label')
 
 
 /* Variables to be accessed globally */
@@ -35,7 +38,7 @@ let selectedTribe, randomTribeArray
 
 /* Response drills */
 
-let tribeDrill, cultureDrill, mediaDrill, currentTribeID
+let tribeDrill, cultureDrill, mediaDrill, commentsDrill, currentTribeID
 
 /* Main tribe info */
 
@@ -46,6 +49,8 @@ let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience
 let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic
 
 /* Other (Contents TBA) */
+
+let allComments // For Axios PUT requests for comments
 
 /* ON PAGE LOAD */
 
@@ -83,7 +88,7 @@ toggleSkinButton.addEventListener('click', async () => {
             setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor)
             toggleSkinButton.textContent = `Go back to the ${tribeName} tribe!`
         } else {
-            setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor)
+            setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations)
             toggleSkinButton.textContent = `Check out the ${skinName} clan!`
         }
     }
@@ -102,21 +107,63 @@ randomTribeButton.addEventListener('click', async () => {
 
 })
 
-submitCommentButton.addEventListener('click', async () => {
-    let newUserName = userNameInput.value
-    let newComment = userCommentInput.value
-    let currentTime = Date.now()
+/* Getting the update function to work was very difficult
+My idea was to grab the entire comments section from the previous axios calls, push the new comment object into
+the comments_section object, then Axios.put it in, but online resources were not helpful
+Since I, admiteddly, did not factor my comments schema in a smart way
 
-    let newPost = {
-        userName: newUserName,
-        postTime: currentTime,
-        "comment": newComment,
+I asked ChatGPT for advice, it basically told me to do the same thing, 
+I took ONE line of code from it to help me 
+
+Then I took a long time to realize I had to actually define a put route that used the tribe's name... */
+
+submitCommentButton.addEventListener('click', async () => {
+    if (userCommentInput.value) { /* Makes sure the comment field isn't empty first */
+
+        let newUserName
+
+        if (userNameInput.value) {
+            newUserName = userNameInput.value
+        } else {
+            newUserName = 'Anonymous'
         }
 
+        let newComment = userCommentInput.value
+        let currentTime = new Date().toISOString() /* Apparently defaults to the current time when not specified */
 
-    console.log(newPost)
+        let newPost = {
+            userName: newUserName,
+            postTime: currentTime,
+            comment: newComment,
+            }
 
-    // let insertNewComment = await axios.put(`http://localhost:3001/${category}/name/${tribeName}`)
+        console.log(newPost)
+
+        let updatedComments = allComments /* Retrieve all comments array from global scope */
+        updatedComments.push(newPost) /* New array, contains all old comments + the new submission */
+        console.log(updatedComments)
+
+        let newCommentsObject = {... commentsDrill, comments_section: updatedComments } /* This is the chatGPT code, different variable names */
+
+        console.log(newCommentsObject)
+
+        console.log('===========================')
+
+        let newCommentsSection = await axios.put(`http://localhost:3001/comments/name/${tribeName}`, newCommentsObject)
+
+        /* Saw this format online https://jasonwatmore.com/post/2021/08/24/axios-http-put-request-examples */
+
+        /* Took me too long to realize I had to define this PUT function in the backend */
+
+
+        console.log('Updated comments!')
+        console.log(newCommentsSection)
+        loadAllComments(commentsDrill, tribeName)
+
+    } else {
+        alert('Error: Comment field is empty')
+    }
+
 })
 
 
@@ -126,7 +173,8 @@ submitCommentButton.addEventListener('click', async () => {
 /* Axios call function using name search */
 async function getTribeInfo(category, tribeName) {
     let response = await axios.get(`http://localhost:3001/${category}/name/${tribeName}`)
-    return response.data[0] /* IDK why I have to do this, must be the way my name search works in backend */
+    return response.data[0] /* It's like this because I use find instead of findOne in backend, trying to fix this gave me errors
+    will leave as is for now */
 }
 
 async function loadAllTribeData(selectedTribe) {
@@ -138,7 +186,7 @@ async function loadAllTribeData(selectedTribe) {
     commentsDrill = await getTribeInfo('comments', selectedTribe)
 
     if (tribeDrill.skins[0]) {
-        tribeSkinDrill = tribeDrill.skins[0]
+        tribeSkinDrill = tribeDrill.skins
     }
 
     /* You may need to look at this when Midjiwan gives each tribe more than one skin (💀💀In 2028💀💀) */
@@ -150,6 +198,7 @@ async function loadAllTribeData(selectedTribe) {
     tribeDescription = tribeDrill.description
     tribeUnit = tribeDrill.unitImageURL
     tribeLeader = tribeDrill.leader
+    tribeInspirations = tribeDrill.inspirations
     tribeColor = tribeDrill.colorHex
     currentTribeID = tribeDrill._id
     console.log(currentTribeID)
@@ -171,13 +220,13 @@ async function loadAllTribeData(selectedTribe) {
     }
 
 
-    setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor)
+    setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations)
 
     playAmbience(tribeDrill)
 
     populateTribeLore(cultureDrill, mediaDrill)
 
-    loadAllComments(commentsDrill)
+    loadAllComments(commentsDrill, tribeName)
 }
 
 /* Loads all content in second page, toggles when user requests different lore */
@@ -212,7 +261,7 @@ function populateTribeLore(cultureDrill, mediaDrill) {
     
 }
 
-function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor) {
+function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations) {
     descriptionTextDisplay.textContent = tribeDescription
     leaderNameDisplay.textContent = tribeLeader
     tribeHeadDisplay.setAttribute('src', tribeHead)
@@ -223,14 +272,31 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
     }
 
     tribeCard.style.backgroundColor = tribeColor
+
+    inspirationsList.innerHTML = ``
+
+    for (inspiration of tribeInspirations) {
+
+        let inspirationItem = document.createElement('li')
+
+        inspirationItem.classList.add('inspiration-item')
+
+        inspirationItem.textContent = inspiration
+
+        inspirationsList.appendChild(inspirationItem)
+    }
     
 }
 
-function loadAllComments(commentsDrill) {
+function loadAllComments(commentsDrill, tribeName) {
 
-    commentsSectionContainer.innerHTML = `` /* Clears previous comment section */
+    /* Clears previous comment section and user input */
+    commentsSectionContainer.innerHTML = ``
+    userCommentInput.value = ``
+    userNameInput.value = ``
+    commentFieldLabel.textContent = `Say something nice about the ${tribeName}`
 
-    let allComments = commentsDrill.comments_section /* Array of objects */
+    allComments = commentsDrill.comments_section /* Array of objects */
     for (comment of allComments) {
         let userName = comment.userName
         let userComment = comment.comment
