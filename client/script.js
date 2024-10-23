@@ -18,7 +18,18 @@ window.addEventListener('load', async () => {
     
     let tribeResponseInitial = await axios.get(`http://localhost:3001/tribes`)
 
-    for (tribe of tribeResponseInitial.data) {
+    let fullListOfTribes = tribeResponseInitial.data
+
+    /* Shuffles list of tribes so user is more likely to see more tribes */
+
+    fullListOfTribes.sort((a, b) => 0.5 - Math.random())
+    
+    /* Custom sort */
+    /* https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj */
+
+    // Note to self, try to find a way to shuffle this array that actually makes sense to you
+
+    for (tribe of fullListOfTribes) {
         let tribeItem = document.createElement('article')
         tribeItem.classList.add('tribe-preview')
         

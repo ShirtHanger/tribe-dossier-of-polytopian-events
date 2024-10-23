@@ -60,7 +60,7 @@ let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience
 
 /* Tribe skin info (If it exists) */
 
-let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic
+let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic, skinAmbience
 
 /* Comments Section  */
 
@@ -102,15 +102,16 @@ learnMoreButton.addEventListener('click', async () => {
 /* Swaps between base tribe and their skin */
 toggleSkinButton.addEventListener('click', async () => { 
     if (tribeSkinDrill) { /* If the tribe had no skin, does nothing */
-        if (tribeHeadDisplay.alt === tribeName) {
+        startAmbience(tribeDrill, tribeName)
+        if (tribeHeadDisplay.alt === tribeName) { /* It is on the tribe, swap to skin  */
             toggleSkinButton.textContent = `Go back to the ${tribeName} tribe!`
-            musicButton.textContent = `Hear some ${tribeName} music! (TBA)`
+            musicButton.textContent = `Hear some ${tribeName} music!`
             console.log(tribeInspirations) 
             /* Claims tribeInspirations is not iterable when swapping into the skin. IDK, ask prof tommorow */
             setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor)
-        } else {
+        } else { /* It is on the skin, swap to original tribe */
             toggleSkinButton.textContent = `Check out the ${skinName} clan!`
-            musicButton.textContent = `Hear some ${skinName} music! (TBA)`
+            musicButton.textContent = `Hear some ${skinName} music!`
             console.log(tribeInspirations)
             setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations)
         }
@@ -185,6 +186,18 @@ submitCommentButton.addEventListener('click', async () => {
 
 })
 
+musicButton.addEventListener('click', async () => {
+    if (tribeSkinDrill) {
+        console.log(tribeHeadDisplay.alt)
+        if (tribeHeadDisplay.alt !== tribeName) {
+            console.log(tribeSkinDrill)
+            await playMusic(tribeSkinDrill, skinName)
+    } else {
+        await playMusic(tribeDrill, tribeName)
+        }
+    }
+})
+
 /* Getting the update function to work was very difficult
 My idea was to grab the entire comments section from the previous axios calls, push the new comment object into
 the comments_section object, then Axios.put it in, but online resources were not helpful
@@ -248,6 +261,7 @@ async function loadAllTribeData(selectedTribe) {
         skinDescription = tribeSkinDrill.description
         skinUnit = tribeSkinDrill.unitImageURL
         skinMusic = new Audio(tribeSkinDrill.theme)
+        skinAmbience = new Audio(tribeSkinDrill.natureAmbience)
         toggleSkinButton.style.visibility = 'visible'
         toggleSkinButton.textContent = `Check out the ${skinName} clan!`
 
@@ -257,6 +271,7 @@ async function loadAllTribeData(selectedTribe) {
         skinDescription = ``
         skinUnit = ``
         skinMusic = ``
+        skinAmbience = ``
         toggleSkinButton.style.visibility = 'hidden'
         toggleSkinButton.textContent = ``
     }
@@ -264,7 +279,7 @@ async function loadAllTribeData(selectedTribe) {
 
     setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations)
 
-    playAmbience(tribeDrill)
+    startAmbience(tribeDrill, tribeName)
 
     populateTribeLore(cultureDrill, mediaDrill)
 
@@ -309,7 +324,7 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
     leaderNameDisplay.textContent = tribeLeader
     tribeHeadDisplay.setAttribute('src', tribeHead)
     tribeHeadDisplay.setAttribute('alt', tribeName)
-    musicButton.textContent = `Hear some ${tribeName} music! (TBA)`
+    musicButton.textContent = `Hear some ${tribeName} music!`
 
     for (unit of tribeUnitDisplay) {
     unit.setAttribute('src', tribeUnit)
@@ -374,18 +389,45 @@ function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
 }
 
 /* Plays tribe's environment ambience when page loads */
-function playAmbience(tribeDrill) {
+async function startAmbience(responseDrill, responseTribeName) {
 
     if (tribeAmbience) { /* Pauses previous audio if loading another tribe */
-        tribeAmbience.pause()
+        await tribeAmbience.pause()
     }
 
-    /* Define (Or redefines) music to be played */
-    tribeMusic = new Audio(tribeDrill.theme)
-    tribeAmbience = new Audio(tribeDrill.natureAmbience)
+    if (tribeMusic) {
+        await tribeMusic.pause()
+    }
+
+    /* Define (Or redefines) music to be played to that of current tribe */
+    tribeMusic = new Audio(responseDrill.theme)
+    tribeAmbience = new Audio(responseDrill.natureAmbience)
     
     tribeAmbience.loop = true
     tribeAmbience.play()
+
+    console.log(`Now playing ${responseTribeName} ambience`)
+}
+
+async function playMusic(responseDrill, responseTribeName) { /* You must create a drill PARAMETER/ARGUEMENT, or ambience wont toggle for tribe */
+
+    if (tribeAmbience && !tribeAmbience.paused) { /* Pauses previous audio if loading another tribe */
+        await tribeAmbience.pause()
+        tribeMusic = new Audio(responseDrill.theme)
+        tribeMusic.loop = true
+        tribeMusic.play()
+        console.log(`Now playing ${responseTribeName} Music`)
+        musicButton.textContent = `Hear some ${responseTribeName} ambience...`
+    } else if (tribeMusic && !tribeMusic.paused) {
+        await tribeMusic.pause()
+        tribeAmbience = new Audio(tribeDrill.natureAmbience)
+        tribeAmbience.loop = true
+        tribeAmbience.play()
+        console.log(`Now playing ${responseTribeName} ambience`)
+        musicButton.textContent = `Hear some ${responseTribeName} music!`
+    }
+
+    /* Define (Or redefines) music to be played */
 
 }
 

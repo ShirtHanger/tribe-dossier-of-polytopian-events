@@ -22,6 +22,7 @@ const main = async () => {
   const cymanti = await Tribe.find({ name: `Cymanti` })
   const polaris = await Tribe.find({ name: `Polaris` })
 
+  /* Here just incase I mess up and need to roll back */
   const comments = [
     // Xin-Xi
     {
@@ -30,6 +31,9 @@ const main = async () => {
       comments_section: [
         { userName: 'ZenMaster42', postTime: new Date("October 13, 2024 11:13:00"), comment:`Patience is OP.` },
         { userName: 'Warlord_Wu', postTime: new Date("October 17, 2024 10:21:00"), comment:`Strategy > numbers.` },
+        { userName: 'Anonymous', postTime: new Date("October 20, 2024 10:11:00"), comment:`Love the Samurai Helmet!` },
+        { userName: '愤怒的老虎', postTime: new Date("October 20, 2024 10:21:00"), comment:`沙约斯祖万岁！` },
+        { userName: 'Monk', postTime: new Date("October 20, 2024 10:43:00"), comment:`Climbing's gotta be the worst starting tech` },
       ],
     },
     // Imperius
@@ -172,7 +176,9 @@ const main = async () => {
         { userName: 'CajunSamurai', postTime: new Date("October 17, 2024 10:21:00"), comment:`I HATE THE ICE ARCHERS!!!!!` },
       ],
     },
-  ]
+  ] 
+
+  
 
   
   await Comment.insertMany(comments)
