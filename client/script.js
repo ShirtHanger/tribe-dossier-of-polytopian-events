@@ -1,6 +1,9 @@
-/* DOM ELEMENTS */
+/*
+================== 
+DOM ELEMENTS
+==================
+ */
 
-/* Containers */
 const tribeListContainer = document.querySelector('.tribe-list-container')
 let randomTribeArray = []
 let selectedTribe
@@ -10,8 +13,9 @@ let selectedTribe
 randomTribeButton = document.querySelector('#random-tribe-button')
 
 
+/* Loads page with ALL tribes for user to select from */
 window.addEventListener('load', async () => {
-    /* Loads page with ALL tribes at bottom for user to select from */
+    
     let tribeResponseInitial = await axios.get(`http://localhost:3001/tribes`)
 
     for (tribe of tribeResponseInitial.data) {
@@ -45,9 +49,7 @@ window.addEventListener('load', async () => {
 
 
 
-
-    /* This REFUSED to work until I added 'let' before each selector, redefines it apparently */
-    /* Apparently, you're supposed to redeclare https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
+    /* Loads data up for whichever tribe the user selects */
     for (let tribelink of tribeLinks) {
         tribelink.addEventListener('click', async () => {
 
@@ -59,10 +61,13 @@ window.addEventListener('load', async () => {
             /* Allows the tribe's name to be passed onto the tribeData.js file */
             
         })
+        /* This REFUSED to work until I added 'let' before each selector, redefines it apparently */
+        /* Apparently, you're supposed to redeclare https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
     }
 
 })
 
+/* If they can't decide, this random tribe button will give them a random one */
 randomTribeButton.addEventListener('click', async () => {
 
             randomIndex = randNum(randomTribeArray.length)
@@ -75,31 +80,16 @@ randomTribeButton.addEventListener('click', async () => {
     
 })
 
+/* 
+==================
+FUNCTIONS
+==================
+ */
 
-
-/* EVENT LISTENERS - LANDING PAGE */
-
-/* FUNCTIONS */
-
+/* Returns a random number between 0 and the length of given array */
+/* Used for random tribe button */
 function randNum(maxNum) {
-    /* Returns a random number between 0 and the length of given array */
-    /* Used to randomly iterate over tribe facts */
 
     randIndex = Math.floor(Math.random() * maxNum) // Copied this from my Pokemon Album Prework, edited for this
     return randIndex
-  }
-
-/* Iterates over an object like an array, returns the value of each key */
-/* https://www.geeksforgeeks.org/how-to-iterate-over-a-javascript-object/ (#1) */
-
-function iterateOverObject(object, objectKey, array) {
-    if (object.hasOwnProperty(objectKey)) {
-        objectValue = object[objectKey]
-        array.push(objectValue)
-    }
-}
-
-async function getTribeInfo(category, tribeName) {
-    let response = await axios.get(`http://localhost:3001/${category}/name/${tribeName}`)
-    return response.data
 }

@@ -2,22 +2,36 @@
 I knew I could import so I did some googling and discovered sessionStorage
 https://www.w3schools.com/jsref/prop_win_sessionstorage.asp */
 
+/* 
+=====================
+DOM ELEMENTS
+=======================
+ */
 
+/* Tribe info */
+
+const tribeDataContainer = document.querySelector('#tribe-data-container')
+
+const tribeCard = document.querySelector('#tribe-card')
+const tribeHeadDisplay = document.querySelector('#tribe-head-display')
+const descriptionTextDisplay = document.querySelector('#description-text-display')
+
+const leaderNameDisplay = document.querySelector('#leader-name-display')
+
+const mediaDisplay = document.querySelector('#media-display')
+const mediaCaption = document.querySelector('#media-caption')
 
 const loreTextDisplay = document.querySelector('#lore-text-display')
-const descriptionTextDisplay = document.querySelector('#description-text-display')
-const mediaDisplay = document.querySelector('#media-display')
-const tribeHeadDisplay = document.querySelector('#tribe-head-display')
 const tribeUnitDisplay = document.querySelectorAll('.tribe-unit-display')
-const tribeDataContainer = document.querySelector('#tribe-data-container')
-const tribeCard = document.querySelector('#tribe-card')
-const learnMoreButton = document.querySelector('#learn-more-button')
-const toggleSkinButton = document.querySelector('#toggle-skin-button')
-const leaderNameDisplay = document.querySelector('#leader-name-display')
-const mediaCaption = document.querySelector('#media-caption')
-const randomTribeButton = document.querySelector('#random-tribe-button')
 
 const inspirationsList = document.querySelector('#inspirations-list')
+
+/* Buttons  */
+
+const learnMoreButton = document.querySelector('#learn-more-button')
+const toggleSkinButton = document.querySelector('#toggle-skin-button')
+const randomTribeButton = document.querySelector('#random-tribe-button')
+const musicButton = document.querySelector('#music-button')
 
 /* Comments section */
 
@@ -28,9 +42,9 @@ const userCommentInput = document.querySelector('#user-comment-input')
 const commentFieldLabel = document.querySelector('#comment-field-label')
 
 
-/* Variables to be accessed globally */
-
-/* I have done this so tribe data can be toggled via other event listeners, as global variables */
+/* =================================
+Global Variables (Less Axios calls and ability to shuffle information from random tribes via multiple event listeners)
+============================ */
 
 /* Variables from main script.js */
 
@@ -42,17 +56,21 @@ let tribeDrill, cultureDrill, mediaDrill, commentsDrill, currentTribeID
 
 /* Main tribe info */
 
-let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor, tribeLeader
+let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor, tribeLeader, tribeInspirations
 
 /* Tribe skin info (If it exists) */
 
 let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic
 
-/* Other (Contents TBA) */
+/* Comments Section  */
 
 let allComments // For Axios PUT requests for comments
 
-/* ON PAGE LOAD */
+/* 
+=============================
+ON PAGE LOAD
+Populates page with data from selected tribe
+============================= */
 
 window.addEventListener('load', async () => {
     console.log('PAGE IS LOADED')
@@ -68,8 +86,6 @@ window.addEventListener('load', async () => {
     /* YIPEE! */
 
     loadAllTribeData(selectedTribe)
-
-    /* Pull music function OUT of this, run it afterward, or make a different music button */
     
 })
 
@@ -79,24 +95,34 @@ learnMoreButton.addEventListener('click', async () => {
     console.log('Toggling lore of:', tribeName)
     cultureDrill = await getTribeInfo('cultures', tribeName)
     mediaDrill = await getTribeInfo('medias', tribeName)
+
     populateTribeLore(cultureDrill, mediaDrill)
 })
 
-toggleSkinButton.addEventListener('click', async () => {
-    if (tribeSkinDrill) {
+/* Swaps between base tribe and their skin */
+toggleSkinButton.addEventListener('click', async () => { 
+    if (tribeSkinDrill) { /* If the tribe had no skin, does nothing */
         if (tribeHeadDisplay.alt === tribeName) {
-            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor)
             toggleSkinButton.textContent = `Go back to the ${tribeName} tribe!`
+            musicButton.textContent = `Hear some ${tribeName} music! (TBA)`
+            console.log(tribeInspirations) 
+            /* Claims tribeInspirations is not iterable when swapping into the skin. IDK, ask prof tommorow */
+            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor)
         } else {
-            setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations)
             toggleSkinButton.textContent = `Check out the ${skinName} clan!`
+            musicButton.textContent = `Hear some ${skinName} music! (TBA)`
+            console.log(tribeInspirations)
+            setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations)
         }
+    } else {
+        alert('This tribe does not have a skin... yet! (BTW This button is supposed to be invisible)')
     }
 })
 
+/* Gives the user a randomized tribe */
 randomTribeButton.addEventListener('click', async () => {
 
-    randomIndex = randNum(randomTribeArray.length)
+    randomIndex = randNum(randomTribeArray.length) /* Yanks array of all tribes from previous page */
 
     let newTribe = randomTribeArray[randomIndex]
     console.log('Swapping to:', newTribe)
@@ -107,16 +133,7 @@ randomTribeButton.addEventListener('click', async () => {
 
 })
 
-/* Getting the update function to work was very difficult
-My idea was to grab the entire comments section from the previous axios calls, push the new comment object into
-the comments_section object, then Axios.put it in, but online resources were not helpful
-Since I, admiteddly, did not factor my comments schema in a smart way
-
-I asked ChatGPT for advice, it basically told me to do the same thing, 
-I took ONE line of code from it to help me 
-
-Then I took a long time to realize I had to actually define a put route that used the tribe's name... */
-
+/* Allows user to submit a comment via the U in CRUD */
 submitCommentButton.addEventListener('click', async () => {
     if (userCommentInput.value) { /* Makes sure the comment field isn't empty first */
 
@@ -131,6 +148,7 @@ submitCommentButton.addEventListener('click', async () => {
         let newComment = userCommentInput.value
         let currentTime = new Date().toISOString() /* Apparently defaults to the current time when not specified */
 
+        /* New comment stored as an object */
         let newPost = {
             userName: newUserName,
             postTime: currentTime,
@@ -158,6 +176,7 @@ submitCommentButton.addEventListener('click', async () => {
 
         console.log('Updated comments!')
         console.log(newCommentsSection)
+        /* Reloads comments, user should see their addition in real time */
         loadAllComments(commentsDrill, tribeName)
 
     } else {
@@ -166,27 +185,44 @@ submitCommentButton.addEventListener('click', async () => {
 
 })
 
+/* Getting the update function to work was very difficult
+My idea was to grab the entire comments section from the previous axios calls, push the new comment object into
+the comments_section object, then Axios.put it in, but online resources were not helpful
+Since I, admiteddly, did not factor my comments schema in a smart way
+
+I asked ChatGPT for advice, it basically told me to do the same thing, 
+I took ONE line of code from it to help me 
+
+Then I took a long time to realize I had to actually define a put route that used the tribe's name... */
 
 
-/* FUNCTIONS */
+/* 
+========================
+FUNCTIONS
+===========================
+ */
 
 /* Axios call function using name search */
 async function getTribeInfo(category, tribeName) {
     let response = await axios.get(`http://localhost:3001/${category}/name/${tribeName}`)
-    return response.data[0] /* It's like this because I use find instead of findOne in backend, trying to fix this gave me errors
+    return response.data[0] 
+    /* It's like this because I use find instead of findOne in backend, trying to fix this gave me errors
     will leave as is for now */
 }
 
+/* Calls ALL data population functions to fill page */
 async function loadAllTribeData(selectedTribe) {
     learnMoreButton.textContent = `Learn more about the ${selectedTribe} tribe!`
+
+    /* Axios calls */
 
     tribeDrill = await getTribeInfo('tribes', selectedTribe)
     cultureDrill = await getTribeInfo('cultures', selectedTribe)
     mediaDrill = await getTribeInfo('medias', selectedTribe)
     commentsDrill = await getTribeInfo('comments', selectedTribe)
 
-    if (tribeDrill.skins[0]) {
-        tribeSkinDrill = tribeDrill.skins
+    if (tribeDrill.skins[0]) { /* Ignored if no tribe skin exists */
+        tribeSkinDrill = tribeDrill.skins[0]
     }
 
     /* You may need to look at this when Midjiwan gives each tribe more than one skin (💀💀In 2028💀💀) */
@@ -203,8 +239,9 @@ async function loadAllTribeData(selectedTribe) {
     currentTribeID = tribeDrill._id
     console.log(currentTribeID)
 
-    /* Tribe skin properties (If skin exists) */
-    /* Define them outside of scope so they can be accessed globally */
+    /* Tribe skin properties (If skin exists)
+    Otherwise, set them all to empty strings just incase */
+
     if (tribeDrill.skins.length > 0) {
         skinName = tribeSkinDrill.name
         skinHead = tribeSkinDrill.headImageURL
@@ -215,6 +252,11 @@ async function loadAllTribeData(selectedTribe) {
         toggleSkinButton.textContent = `Check out the ${skinName} clan!`
 
     } else {
+        skinName = ``
+        skinHead = ``
+        skinDescription = ``
+        skinUnit = ``
+        skinMusic = ``
         toggleSkinButton.style.visibility = 'hidden'
         toggleSkinButton.textContent = ``
     }
@@ -229,7 +271,7 @@ async function loadAllTribeData(selectedTribe) {
     loadAllComments(commentsDrill, tribeName)
 }
 
-/* Loads all content in second page, toggles when user requests different lore */
+/* Creates lore/media arrays, then summons lore load function */
 
 function populateTribeLore(cultureDrill, mediaDrill) {
 
@@ -261,11 +303,13 @@ function populateTribeLore(cultureDrill, mediaDrill) {
     
 }
 
+/* Fills up the tribe card with information, + cultural inspirations below the lore blurb  */
 function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations) {
     descriptionTextDisplay.textContent = tribeDescription
     leaderNameDisplay.textContent = tribeLeader
     tribeHeadDisplay.setAttribute('src', tribeHead)
     tribeHeadDisplay.setAttribute('alt', tribeName)
+    musicButton.textContent = `Hear some ${tribeName} music! (TBA)`
 
     for (unit of tribeUnitDisplay) {
     unit.setAttribute('src', tribeUnit)
@@ -288,6 +332,7 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
     
 }
 
+/* Yanks all comments from database and populates at bottom of page */
 function loadAllComments(commentsDrill, tribeName) {
 
     /* Clears previous comment section and user input */
@@ -301,7 +346,6 @@ function loadAllComments(commentsDrill, tribeName) {
         let userName = comment.userName
         let userComment = comment.comment
         let commentDate = new Date(comment.postTime) /* Took me a minute to realize I had to redefine */
-        console.log(commentDate)
 
         let commentFromDatabase = document.createElement('article')
 
@@ -315,7 +359,7 @@ function loadAllComments(commentsDrill, tribeName) {
     }
 }
 
-/* Sets the lore properties of tribe data page */
+/* Loads up randomized lore image and blurb */
 function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
     loreTextDisplay.textContent = loreArray[randomLore]
 
@@ -329,12 +373,14 @@ function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
     }
 }
 
+/* Plays tribe's environment ambience when page loads */
 function playAmbience(tribeDrill) {
 
-    if (tribeAmbience) { /* Pauses previous audio if loading from a random tribe */
+    if (tribeAmbience) { /* Pauses previous audio if loading another tribe */
         tribeAmbience.pause()
     }
 
+    /* Define (Or redefines) music to be played */
     tribeMusic = new Audio(tribeDrill.theme)
     tribeAmbience = new Audio(tribeDrill.natureAmbience)
     
@@ -343,9 +389,9 @@ function playAmbience(tribeDrill) {
 
 }
 
+/* Returns a random number between 0 and the length of given array */
+/* Used for random lore swapping and random tribe button */
 function randNum(maxNum) {
-    /* Returns a random number between 0 and the length of given array */
-    /* Used to randomly iterate over tribe facts */
 
     randIndex = Math.floor(Math.random() * maxNum) // Copied this from my Pokemon Album Prework, edited for this
     return randIndex
