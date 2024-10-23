@@ -39,7 +39,11 @@ ul {
 
 li {
     list-style: none;
-}ks
+}
+
+a {
+    text-decoration: none;
+}
 
 /* IDs */
 
@@ -89,8 +93,10 @@ li {
 }
 
 button, #submit-comment-button {
-    background-color: navy;
+    /* background-color: #3478C6; */
+    background: rgba(52, 120, 238, 0.7); /* Trying to make the background of the button see-through, but not text */
     border-radius: 35%;
+    color: silver;
     margin: auto;
     width: auto;
     padding: 1.2rem;

@@ -15,9 +15,9 @@
 <body>
     <main>
 
-        <header id="tribe-data-container">
+        <section id="tribe-data-container">
 
-            <div id="tribe-card">
+            <figure id="tribe-card">
 
                 <img id="tribe-head-display">
                 
@@ -32,20 +32,20 @@
                     <button id="music-button"><!-- Button will pause ambience and play tribe theme --></button>
 
                 </span>
-            </div>
+            </figure>
             
-            <article id="media-container">
+            <aside id="media-container">
                 <div id="media-display">
                     <!-- Image/Video goes here -->
                 </div>
                 <p id="media-caption">
                     <!-- Life in the [Tribe] empire -->
                 </p>
-            </article>
-        </header>
+            </aside>
+        </section>
 
     
-        <footer id="tribe-lore-container">
+        <article id="tribe-lore-container">
 
             <img class="tribe-unit-display">
                 <p id="lore-text-display">
@@ -53,7 +53,7 @@
                 </p>
             <img class="tribe-unit-display">
 
-        </footer>
+        </article>
 
         <h6 id="inspirations-header">Cultural Inspirations</h6>
         <ul id="inspirations-list">
@@ -77,15 +77,15 @@
 <h3>COMMENTS SECTION</h3>
 
 <!-- User can add comments to database here -->
-<form>
+<footer> <!-- Making this a form reloads page, but anything else it DOESNT (????) -->
     <label>Your Username:</label><br>
     <input type="text" id="user-name-input" placeholder="Be professional!"><br>
     <label id="comment-field-label">Say something nice!</label><br>
     <input type="text" id="user-comment-input" placeholder="Be witty!"><br><br>
     <input type="submit" id="submit-comment-button" value="Post comment!">
-</form>
+</footer>
 
-<div class="comments-section-container">
+<section class="comments-section-container">
     <!-- All existing comments will be loaded here! -->
-</div>
+</section>
 </body>

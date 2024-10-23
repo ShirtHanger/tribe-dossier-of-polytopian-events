@@ -19,7 +19,6 @@ body {
 }
 
 button {
-    background: rgba(204, 204, 204, 0.1);
     font-size: 2rem;
     transition: transform 0.5s;
 }
@@ -68,8 +67,10 @@ button:hover {
 }
 
 #tribe-link, #random-tribe-button {
-    background-color: navy;
+    /* background-color: #3478C6; */
+    background: rgba(52, 120, 238, 0.7); /* Trying to make the background of the button see-through, but not text */
     border-radius: 35%;
+    color: silver;
     margin: auto;
     text-decoration: none;
 }
