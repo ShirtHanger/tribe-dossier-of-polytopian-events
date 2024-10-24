@@ -35,13 +35,13 @@ window.addEventListener('load', async () => {
         
         tribeItem.innerHTML = `
 
-        <div class="tribe-preview-picture">
+        <div>
         
-        <img src="${tribe.headImageURL}">
+        <a href="tribeData.html"><img src="${tribe.headImageURL}" alt="${tribe.name}" class="tribe-preview-picture" ></a>
         
         </div>
 
-        <button id="tribe-link"><a href="tribeData.html">${tribe.name}<a></button>
+        <button id="tribe-link-button"><a href="tribeData.html">${tribe.name}<a></button>
 
         <p class="tribe-preview-description">${tribe.description}</p>`
 
@@ -50,31 +50,84 @@ window.addEventListener('load', async () => {
         tribeItem.style.backgroundColor = tribe.colorHex
 
         randomTribeArray.push(tribe.name)
+
+        localStorage.setItem('allTribes', randomTribeArray)
+
+        console.log(randomTribeArray)
     } 
 
-    console.log(randomTribeArray)
 
     tribePreview = document.querySelectorAll('.tribe-preview')
-    tribeLinks = document.querySelectorAll('#tribe-link')
-    sessionStorage.setItem('allTribes', randomTribeArray)
+    tribeLinkButtons = document.querySelectorAll('#tribe-link-button')
+    tribePreviewPictures = document.querySelectorAll('.tribe-preview-picture')
+    for (picture of tribePreviewPictures) {
+        console.log(picture.alt)
+    }
 
-
+    allTribeButtons = [...tribeLinkButtons, ... tribePreviewPictures]
 
     /* Loads data up for whichever tribe the user selects */
-    for (let tribelink of tribeLinks) {
-        tribelink.addEventListener('click', async () => {
+    
+    // for (let link of tribeLinkButtons) {
+    //     link.addEventListener('click', async () => {
 
-            selectedTribe = tribelink.innerText
+    //         if (link.innerText) {
 
-            console.log('YOU CLICKED ON:', selectedTribe)
+    //             selectedTribe = link.innerText
 
-            sessionStorage.setItem('loadedTribe', selectedTribe)
-            /* Allows the tribe's name to be passed onto the tribeData.js file */
+    //             console.log('YOU CLICKED ON:', selectedTribe)
+
+    //             localStorage.setItem('loadedTribe', selectedTribe)
+    //             /* Allows the tribe's name to be passed onto the tribeData.js file */
+
+    //         } else {
+    //             console.log(`Error, IDK`)
+    //         }
             
+    //     })
+    //     /* This REFUSED to work until I added 'let' before each selector, redefines it apparently */
+    //     /* Apparently, you're supposed to redeclare https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
+    // }
+
+    // for (let picture of tribePreviewPictures) {
+    //     picture.addEventListener('click', async () => {
+
+    //         if (picture.alt) {
+
+    //             selectedTribe = picture.alt
+
+    //             console.log('YOU CLICKED ON:', selectedTribe)
+
+    //             localStorage.setItem('loadedTribe', selectedTribe)
+    //             /* Allows the tribe's name to be passed onto the tribeData.js file */
+
+    //         } else {
+    //             console.log(`Error, IDK`)
+    //         }
+    //     })
+    // }
+
+    for (let tribeButton of allTribeButtons) {
+        tribeButton.addEventListener('click', async () => {
+
+            if (tribeButton.alt || tribeButton.textContent) {
+
+                loadUpTribe(tribeButton.alt || tribeButton.textContent)
+
+                // selectedTribe = tribeButton.alt || tribeButton.textContent
+
+                // console.log('YOU CLICKED ON:', selectedTribe)
+
+                // localStorage.setItem('loadedTribe', selectedTribe)
+                // /* Allows the tribe's name to be passed onto the tribeData.js file */
+
+            } else {
+                console.log(`Error, IDK`)
+            }
         })
-        /* This REFUSED to work until I added 'let' before each selector, redefines it apparently */
-        /* Apparently, you're supposed to redeclare https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of */
     }
+
+
 
 })
 
@@ -83,11 +136,13 @@ randomTribeButton.addEventListener('click', async () => {
 
             randomIndex = randNum(randomTribeArray.length)
 
-            selectedTribe = randomTribeArray[randomIndex]
-            console.log('YOU GOT:', selectedTribe)
+            loadUpTribe(randomTribeArray[randomIndex])
 
-            sessionStorage.setItem('loadedTribe', selectedTribe)
-            /* Allows the tribe's name to be passed onto the tribeData.js file */
+            // selectedTribe = randomTribeArray[randomIndex]
+            // console.log('YOU GOT:', selectedTribe)
+
+            // localStorage.setItem('loadedTribe', selectedTribe)
+            // /* Allows the tribe's name to be passed onto the tribeData.js file */
     
 })
 
@@ -103,4 +158,13 @@ function randNum(maxNum) {
 
     randIndex = Math.floor(Math.random() * maxNum) // Copied this from my Pokemon Album Prework, edited for this
     return randIndex
+}
+
+function loadUpTribe(tribeName) {
+
+    selectedTribe = tribeName
+    console.log('YOU GOT:', selectedTribe)
+
+    localStorage.setItem('loadedTribe', selectedTribe)
+    /* Allows the tribe's name to be passed onto the tribeData.js file */
 }

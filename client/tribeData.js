@@ -1,6 +1,6 @@
 /* After wracking my head trying to do it all in ONE JavaScript file, I decided to do two
-I knew I could import so I did some googling and discovered sessionStorage
-https://www.w3schools.com/jsref/prop_win_sessionstorage.asp */
+I knew I could import so I did some googling and discovered localStorage
+https://www.w3schools.com/jsref/prop_win_localStorage.asp */
 
 /* 
 =====================
@@ -24,6 +24,7 @@ const mediaCaption = document.querySelector('#media-caption')
 const loreTextDisplay = document.querySelector('#lore-text-display')
 const tribeUnitDisplay = document.querySelectorAll('.tribe-unit-display')
 
+const inspirationsHeader = document.querySelector('#inspirations-header')
 const inspirationsList = document.querySelector('#inspirations-list')
 
 /* Buttons  */
@@ -76,9 +77,9 @@ window.addEventListener('load', async () => {
     console.log('PAGE IS LOADED')
     console.log('===================')
 
-    selectedTribe = sessionStorage.getItem('loadedTribe')
+    selectedTribe = localStorage.getItem('loadedTribe')
     console.log('On the previous page, you selected', selectedTribe)
-    randomTribeArray = sessionStorage.getItem('allTribes')
+    randomTribeArray = localStorage.getItem('allTribes')
     randomTribeArray = randomTribeArray.split(',')
     console.log('List of random tribes!')
     console.log(randomTribeArray)
@@ -94,7 +95,7 @@ window.addEventListener('load', async () => {
 
     selectedTribe = randomTribeArray[randomIndex]
 
-    sessionStorage.setItem('loadedTribe', selectedTribe)
+    localStorage.setItem('loadedTribe', selectedTribe)
     
 })
 
@@ -340,6 +341,7 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
     }
 
     tribeCard.style.backgroundColor = tribeColor
+    // inspirationsHeader.style.backgroundColor = tribeColor
 
     inspirationsList.innerHTML = ``
 
@@ -350,6 +352,10 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
         inspirationItem.classList.add('inspiration-item')
 
         inspirationItem.textContent = inspiration
+        inspirationItem.style.backgroundColor = tribeColor
+        inspirationItem.style.borderRadius = `30%`
+        inspirationItem.style.borderStyle = `outset`
+        inspirationItem.style.margin = '2vh'
 
         inspirationsList.appendChild(inspirationItem)
     }
@@ -364,6 +370,8 @@ function loadAllComments(commentsDrill, tribeName) {
     userCommentInput.value = ``
     userNameInput.value = ``
     commentFieldLabel.textContent = `Say something nice about the ${tribeName}`
+
+    commentsSectionContainer.style.backgroundColor = tribeColor
 
     allComments = commentsDrill.comments_section /* Array of objects */
     for (comment of allComments) {

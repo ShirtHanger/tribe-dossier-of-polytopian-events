@@ -142,22 +142,64 @@ button:hover {
     visibility: hidden;
 }
 
+.inspirations-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: larger;
+
+}
+
+#inspirations-header {
+    font-size: larger;
+    padding: 1.2rem;
+    font-family: "Poiret One";
+    text-decoration: double;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px black;
+    border-radius: 40%;
+    max-width: 100vw;
+    background: rgba(70, 21, 5, 0.85);
+}
+
+#inspirations-list {
+    /* background: rgba(17, 17, 17, 0.85); */
+    
+}
+
+#inspiration-item {
+    /* Seems to do nothing */
+}
+
 
 /* Comments section stuff */
 
 #comment-submit-container {
-    background: rgba(35, 37, 41, 0.7);
+    font-family: "Roboto", sans-serif;
+    background: rgba(70, 21, 5, 0.85);
     border-radius: 10%;
     margin: 0vw 20vw 0vw 20vw;
+    color: blue;
+}
+
+#comment-submit-container label {
+    background: green;
+    border-style: ridge;
+    border-radius: 40%;
+    color: blue;
 }
 
 .comments-section-container {
-    background: rgba(7, 150, 7, 0.514);
     display: flex;
     flex-direction: column;
     border-radius: 20%;
     align-items: center;
     margin: 5vw 12vw 5vw 12vw;
+    border: 5px groove rgba(7, 150, 7, 0.514);
 }
 
 .comment-data-field {
@@ -189,12 +231,17 @@ button:hover {
 .user-comment {
     border-style: groove;
     border-radius: 25%;
+    background: rgba(70, 21, 5, 0.7);
 
 }
 
 /* Mobile design */
 
 @media screen and (max-width: 800px) {
+
+    ul {
+        flex-direction: column;
+    }
 
     #tribe-data-container {
         flex-wrap: wrap;
@@ -205,6 +252,7 @@ button:hover {
 
     #lore-text-display {
         /* IDK, make it wider since units are hidden */
+        min-width: 50vw;
     }
 
 }
