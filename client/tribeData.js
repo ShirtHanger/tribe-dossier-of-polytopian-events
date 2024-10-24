@@ -14,6 +14,8 @@ const tribeDataContainer = document.querySelector('#tribe-data-container')
 
 const tribeCard = document.querySelector('#tribe-card')
 const tribeHeadDisplay = document.querySelector('#tribe-head-display')
+const freeOrPaidTribeTag = document.querySelector('#free-or-paid-tribe-tag')
+const humanOrSpecialribeTag = document.querySelector('#human-or-special-tribe-tag')
 const descriptionTextDisplay = document.querySelector('#description-text-display')
 
 const leaderNameDisplay = document.querySelector('#leader-name-display')
@@ -22,7 +24,8 @@ const mediaDisplay = document.querySelector('#media-display')
 const mediaCaption = document.querySelector('#media-caption')
 
 const loreTextDisplay = document.querySelector('#lore-text-display')
-const tribeUnitDisplay = document.querySelectorAll('.tribe-unit-display')
+const tribeUnitDisplays = document.querySelectorAll('.tribe-unit-display')
+const loreAndPipemanBox = document.querySelector('#lore-and-pipeman-box')
 
 const inspirationsHeader = document.querySelector('#inspirations-header')
 const inspirationsList = document.querySelector('#inspirations-list')
@@ -57,7 +60,7 @@ let tribeDrill, cultureDrill, mediaDrill, commentsDrill, currentTribeID
 
 /* Main tribe info */
 
-let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor, tribeLeader, tribeInspirations
+let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience, tribeColor, tribeLeader, tribeInspirations, specialTribe, freeTribe
 
 /* Tribe skin info (If it exists) */
 
@@ -259,6 +262,8 @@ async function loadAllTribeData(selectedTribe) {
     tribeLeader = tribeDrill.leader
     tribeInspirations = tribeDrill.inspirations
     tribeColor = tribeDrill.colorHex
+    specialTribe = tribeDrill.isSpecialTribe
+    freeTribe = tribeDrill.isFreeTribe
     currentTribeID = tribeDrill._id
     console.log(currentTribeID)
 
@@ -301,6 +306,7 @@ async function loadAllTribeData(selectedTribe) {
 function populateTribeLore(cultureDrill, mediaDrill) {
 
     mediaCaption.textContent = `Life in the ${tribeName} empire`
+    mediaCaption.style.background = tribeColor
 
     let loreBlurbs = cultureDrill.lore
     let mediaLinks = mediaDrill.mediaURLs
@@ -332,16 +338,19 @@ function populateTribeLore(cultureDrill, mediaDrill) {
 function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribeUnit, tribeColor, tribeInspirations) {
     descriptionTextDisplay.textContent = tribeDescription
     leaderNameDisplay.textContent = tribeLeader
+    freeOrPaidTribeTag.textContent = `${freeTribe ? 'Free Tribe' : 'Paid Tribe'}`
+    humanOrSpecialribeTag.textContent = `${specialTribe ? 'Special!' : 'Human'}`
+
     tribeHeadDisplay.setAttribute('src', tribeHead)
     tribeHeadDisplay.setAttribute('alt', tribeName)
     musicButton.textContent = `Hear some ${tribeName} music!`
 
-    for (unit of tribeUnitDisplay) {
+    for (unit of tribeUnitDisplays) {
     unit.setAttribute('src', tribeUnit)
     }
 
     tribeCard.style.backgroundColor = tribeColor
-    // inspirationsHeader.style.backgroundColor = tribeColor
+    inspirationsHeader.style.backgroundColor = tribeColor
 
     inspirationsList.innerHTML = ``
 
@@ -353,9 +362,6 @@ function setTribeCard(tribeName, tribeDescription, tribeLeader, tribeHead, tribe
 
         inspirationItem.textContent = inspiration
         inspirationItem.style.backgroundColor = tribeColor
-        inspirationItem.style.borderRadius = `30%`
-        inspirationItem.style.borderStyle = `outset`
-        inspirationItem.style.margin = '2vh'
 
         inspirationsList.appendChild(inspirationItem)
     }
@@ -403,6 +409,7 @@ function toggleLore(randomLore, loreArray, mediaArray, loreTextDisplay) {
         mediaDisplay.innerHTML = `
         <iframe width="560" height="315" src="${mediaArray[randomLore]}" frameborder="50" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
     }
+
 }
 
 /* Plays tribe's environment ambience when page loads */

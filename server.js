@@ -54,6 +54,11 @@ app.get('/tribes/:id', tribeController.getTribeById)
 
 app.get('/tribes/name/:name', tribeController.getTribeByName)
 
+app.get('/tribes/type/free/', tribeController.getTribeByFree)
+app.get('/tribes/type/paid/', tribeController.getTribeByPaid)
+app.get('/tribes/type/human/', tribeController.getTribeByHuman)
+app.get('/tribes/type/special/', tribeController.getTribeBySpecial)
+
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
 app.post('/tribes', tribeController.createTribe) // .post will create stuff!
