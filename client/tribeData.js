@@ -10,7 +10,7 @@ DOM ELEMENTS
 =======================
  */
 
-/* Tribe info! */
+/* Tribe info!! */
 
 const tribeDataContainer = document.querySelector('#tribe-data-container')
 
