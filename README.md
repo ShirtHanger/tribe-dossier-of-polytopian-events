@@ -28,4 +28,4 @@ Pipeman - [Midjiwan's Game Assets](https://polytopia.io/game-graphics/)
 
 <img src="./images/Pipeman.png" width="10%" height="10%"> (Spiffy)
 
-(Polytopia is owned by Midjiwan AB, this is an UNNOFICIAL fan website)
+(Polytopia is owned by Midjiwan AB, this is an UNOFFICIAL fan website)
