@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 /* const password = require('./secret_password') */
+/* password.connectionStringPass */
 
 mongoose.connect( // Place YOUR connection string with the password. Before the ?, enter desired database name
-  password.connectionStringPass
+  connectionStringPass
 )
 .then(()=> {
   console.log('Successfully connected to MongoDB!') // Confirmation for us
