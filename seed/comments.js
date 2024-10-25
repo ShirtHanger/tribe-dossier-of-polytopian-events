@@ -22,7 +22,6 @@ const main = async () => {
   const cymanti = await Tribe.find({ name: `Cymanti` })
   const polaris = await Tribe.find({ name: `Polaris` })
 
-  /* Here just incase I mess up and need to roll back */
   const comments = [
     // Xin-Xi
     {
@@ -43,6 +42,7 @@ const main = async () => {
       comments_section: [
         { userName: 'RoyalistRex', postTime: new Date("October 13, 2024 11:13:00"), comment:`All hail the crown.` },
         { userName: 'EmperorX', postTime: new Date("October 17, 2024 10:21:00"), comment:`Imperius? More like Imperi-us.` },
+        { userName: 'Drunkard', postTime: new Date("2024-10-23T20:18:15.031Z"), comment: `They make the best wine in the square!` }
       ],
     },
     // Bardur
@@ -52,6 +52,9 @@ const main = async () => {
       comments_section: [
         { userName: 'WildAxe', postTime: new Date("October 13, 2024 11:13:00"), comment:`Lumber huts solve everything.` },
         { userName: 'FrostGiant', postTime: new Date("October 17, 2024 10:21:00"), comment:`Lumber huts are overpowered` },
+        { userName: 'CrazyChiliDog', postTime: new Date("2024-10-23T01:32:48.946Z"), comment: `https://i.imgur.com/oHCvNTE.jpeg` },
+        { userName: 'Anonymous', postTime: new Date("2024-10-23T01:40:00.119Z"), comment: `Nordic Power!!!` }
+
       ],
     },
     // Oumaji
@@ -80,6 +83,7 @@ const main = async () => {
         { userName: 'SharpShooter', postTime: new Date("October 13, 2024 11:13:00"), comment:`All people ever do is archer spam` },
         { userName: 'RobinWho', postTime: new Date("October 17, 2024 10:21:00"), comment:`I steal hearts, not just gold.` },
         { userName: 'RobinDaBank', postTime: new Date("October 19, 2024 11:01:00"), comment:`The base skin is so bland, Yorthwober is where it's at!` },
+        { userName: 'Anonymous', postTime: new Date("October 17, 2024 10:21:00"), comment:`Their houses look funny` }
       ],
     },
     // Luxidoor
@@ -89,6 +93,9 @@ const main = async () => {
       comments_section: [
         { userName: 'MoneyBags', postTime: new Date("October 13, 2024 11:13:00"), comment:`More gold, more power.` },
         { userName: 'GildedGiant', postTime: new Date("October 17, 2024 10:21:00"), comment:`Luxury never goes out of style.` },
+        { userName: 'Anonymous', postTime: new Date("2024-10-23T14:05:14.706Z"), comment: `How in the world do they ride those elephants??` },
+        { userName: 'Anonymous', postTime: new Date("2024-10-23T14:07:52.094Z"), comment: `@Anonymous don't question it` }
+
       ],
     },
     // Vengir
@@ -98,6 +105,7 @@ const main = async () => {
       comments_section: [
         { userName: 'IronFist', postTime: new Date("October 13, 2024 11:13:00"), comment:`Might makes right.` },
         { userName: 'GrudgeKeeper', postTime: new Date("October 17, 2024 10:21:00"), comment:`Vengeance is a dish best served daily.` },
+        { userName: 'user', postTime: new Date("October 17, 2024 10:21:00"), comment:`Can never go wrong with Slavic Helmets!` }
       ],
     },
     // Zebasi
@@ -128,6 +136,8 @@ const main = async () => {
         { userName: 'FeatheredFury', postTime: new Date("October 17, 2024 10:21:00"), comment:`Flying high, striking fast.` },
         { userName: 'BratWurst', postTime: new Date("October 19, 2024 11:53:00"), comment:`Everybody gangsta till the Aquarion crab army shows up` },
         { userName: 'FeatheredFury', postTime: new Date("October 21, 2024 10:00:00"), comment:`@BratWurst Shut up` },
+        { userName: 'Kevin', postTime: new Date("October 19, 2024 10:21:00"), comment:`I'm not familiar with these guys honestly` },
+        { userName: 'Bird Enjoyer', postTime: new Date("October 20, 2024 10:21:00"), comment:`All hail the bird gods!` }
       ],
     },
     // Yadakk
@@ -138,6 +148,7 @@ const main = async () => {
         { userName: 'RoadRunner', postTime: new Date("October 13, 2024 11:13:00"), comment:`All hail Genghis Khan!` },
         { userName: 'RoadRunner', postTime: new Date("October 13, 2024 11:14:00"), comment:`All hail Genghis Khan!` },
         { userName: 'TradeMaster', postTime: new Date("October 14, 2024 10:21:00"), comment:`@RoadRunner You commented that twice` },
+        { userName: 'Anonymous', postTime: new Date("October 17, 2024 10:21:00"), comment:`Love the mongolian vibe!` }
       ],
     },
     // Aquarion

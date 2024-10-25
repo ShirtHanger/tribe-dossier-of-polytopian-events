@@ -1,31 +1,12 @@
 const db = require(`../db`)
 const { Tribe } = require(`../models`)
 
-
-
 db.on(`error`, console.error.bind(console, `MongoDB connection error:`))
-
-/* For all Google Drive images, you must get the IMAGE ID
-
-https://drive.google.com/file/d/1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a/view
-
-https://drive.google.com/file/d/1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a/preview
-
-ID: 1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a
-
-And place it in here: 
-
-https://drive.usercontent.google.com/download?id=(ID HERE)
-
-https://drive.usercontent.google.com/download?id=1mTMDAF2X_WOWRFdpDaYbS1zJ7OQZ8C-a 
-
-https://stackoverflow.com/questions/10311092/displaying-files-e-g-images-stored-in-google-drive-on-a-website
-
-*/
 
 
 /* Polytopia HEADS - https://drive.google.com/drive/folders/1SuNRypYvdQ63D28moo8cTEFgwi-sG8NW
 Polytopia UNITS - https://drive.google.com/drive/folders/1LcAI2Kny2V47WxPXR8uLo3SPTEy-rmYa */
+/* Unfortunately the Google drive photos don't work... */
 
 const main = async () => {
     const tribes = [
@@ -50,7 +31,8 @@ const main = async () => {
           headImageURL: `https://static.wikia.nocookie.net/supertribes/images/0/07/Sha-po.png`,
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/6/66/Sha-Po_Archer.png`,
           buildingImageURL: `https://files.catbox.moe/3938c7.png`,
-          theme: `https://static.wikia.nocookie.net/supertribes/images/1/1e/Xin-xi_Skin_Theme.ogg`
+          theme: `https://static.wikia.nocookie.net/supertribes/images/1/1e/Xin-xi_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/13/Xin-xi_Nature.wav`
         }]
       },
 
@@ -76,6 +58,7 @@ const main = async () => {
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/9/93/Lirepacci_Warrior.png`,
           buildingImageURL: `https://files.catbox.moe/kr5lpb.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/e/ea/Imperius_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/0/0b/Imperius_Nature.wav`
         }]
       },
 
@@ -101,6 +84,7 @@ const main = async () => {
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/d/d4/Baergoff_Archer.png`,
           buildingImageURL: `https://files.catbox.moe/xxy0x3.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/3/37/Bardur_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Bardur_Nature.wav`
         }]
       },
 
@@ -126,6 +110,7 @@ const main = async () => {
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/d/d2/Khondor_Mind_Bender.png`,
           buildingImageURL: `https://files.catbox.moe/2lq60g.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/b/b9/Oumaji_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/c/c7/Oumaji_Nature.wav`
         }]
       },
 
@@ -151,6 +136,7 @@ const main = async () => {
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/c/c2/Ragoo_Swordsman.png`,
           buildingImageURL: `https://files.catbox.moe/ti6v1n.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/d/d7/Kickoo_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/e/e3/Kickoo_Nature.wav`
         }]
       },
 
@@ -176,6 +162,7 @@ const main = async () => {
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/3/31/Yorthwober_Archer.png`,
           buildingImageURL: `https://files.catbox.moe/rgxc7q.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/3/33/Hoodrick_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/b/b6/Hoodrick_Nature.wav`
         }]
       },
 
@@ -202,6 +189,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/f/fa/Aumux_Swordsman.png`,
           buildingImageURL: `https://files.catbox.moe/w9y73k.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/c/c4/Luxidoor_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/5/5f/Luxidoor_Nature.wav`
         }]
       },
 
@@ -227,6 +215,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/2/25/Cultist_Swordsman.png`,
           buildingImageURL: `https://files.catbox.moe/rvet41.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/5/5d/Vengir_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/3f/Vengir_Nature.wav`
         }]
       },
 
@@ -252,6 +241,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/7/76/Anzala_Warrior.png`,
           buildingImageURL: `https://files.catbox.moe/rs30bu.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/4/4d/Zebasi_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/93/Zebasi_Nature.wav`
   
         }]
       },
@@ -278,6 +268,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/1/19/To-Li_Warrior.png`,
           buildingImageURL: `https://files.catbox.moe/qpk3ng.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/0/0f/Ai-Mo_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/1/1c/Ai-Mo_Nature.wav`
         }]
       },
 
@@ -303,6 +294,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/5/54/Iqaruz_Defender.png`,
           buildingImageURL: `https://files.catbox.moe/e9pgwo.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/a/a8/Quetzali_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/9/9b/Quetzali_Nature.wav`
         }]
       },
 
@@ -328,6 +320,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/2/2c/Urkaz_Rider.png`,
           buildingImageURL: `https://files.catbox.moe/9zzaca.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/8/82/Y%C4%83dakk_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/3/39/Y%C4%83dakk_Nature.wav`
         }]
       },
 
@@ -370,6 +363,7 @@ The Luxidoor citizens lead very comfortable lives, draped in the finest purple s
           unitImageURL: `https://static.wikia.nocookie.net/supertribes/images/f/fb/Midnight_Warrior.png`,
           buildingImageURL: `https://files.catbox.moe/x5xyea.png`,
           theme: `https://static.wikia.nocookie.net/supertribes/images/1/1f/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Skin_Theme.ogg`,
+          natureAmbience: `https://static.wikia.nocookie.net/supertribes/images/d/da/%E2%88%91%E2%88%AB%E1%BB%B9ri%C8%B1%C5%8B_Nature.wav`
         }]
       },
 

@@ -1,8 +1,3 @@
-/* Here's how you import the tribes database into our controller */
-
-// If only ONE item type, you can do this 
-// const Tribe = require('../models/tribe');
-
 const { Uncle, Child, Tribe } = require('../models')
 
 // INDEX - app.get
@@ -47,7 +42,7 @@ const getTribeByName = async (req, res) => {
     }
 }
 
-const getTribeByFree = async (req, res) => {
+const getFreeTribes = async (req, res) => {
     try {
         const tribes = await Tribe.find({ isFreeTribe: true })
         if (tribes) {
@@ -62,7 +57,7 @@ const getTribeByFree = async (req, res) => {
     }
 }
 
-const getTribeByPaid = async (req, res) => {
+const getPaidTribes = async (req, res) => {
     try {
         const tribes = await Tribe.find({ isFreeTribe: false })
         if (tribes) {
@@ -77,7 +72,7 @@ const getTribeByPaid = async (req, res) => {
     }
 }
 
-const getTribeByHuman = async (req, res) => {
+const getHumanTribes = async (req, res) => {
     try {
         const tribes = await Tribe.find({ isSpecialTribe: false })
         if (tribes) {
@@ -91,7 +86,7 @@ const getTribeByHuman = async (req, res) => {
 
     }
 }
-const getTribeBySpecial = async (req, res) => {
+const getSpecialTribes = async (req, res) => {
     try {
         const tribes = await Tribe.find({ isSpecialTribe: true })
         if (tribes) {
@@ -153,8 +148,8 @@ module.exports = {
     deleteTribe,
 
     getTribeByName,
-    getTribeByHuman,
-    getTribeBySpecial,
-    getTribeByFree,
-    getTribeByPaid
+    getHumanTribes,
+    getSpecialTribes,
+    getFreeTribes,
+    getPaidTribes
 }

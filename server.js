@@ -3,7 +3,7 @@ const express = require('express')
 const PORT = process.env.PORT || 3001
 const cors = require('cors')
 const db = require('./db')
-// Insert your database schema files here (??)
+// database schema files and imports just incase
 const { Comment, Media, Culture, Tribe } = require('./models')
 
 /* Optional (?), for logging functionality */
@@ -36,109 +36,110 @@ app.get('/', (req, res)=> { // request and response arguements
 })
 
 
-
-
-
-
-
-
-
-
-
+/* 
+=============
+Tribe Routes
+===============
+ */
 
 
 // INDEX - app.get
 app.get('/tribes', tribeController.getAllTribes)
+
 // SHOW - app.get
 app.get('/tribes/:id', tribeController.getTribeById)
-
 app.get('/tribes/name/:name', tribeController.getTribeByName)
-
-app.get('/tribes/type/free/', tribeController.getTribeByFree)
-app.get('/tribes/type/paid/', tribeController.getTribeByPaid)
-app.get('/tribes/type/human/', tribeController.getTribeByHuman)
-app.get('/tribes/type/special/', tribeController.getTribeBySpecial)
+// 
+app.get('/tribes/type/free/', tribeController.getFreeTribes)
+app.get('/tribes/type/paid/', tribeController.getPaidTribes)
+app.get('/tribes/type/human/', tribeController.getHumanTribes)
+app.get('/tribes/type/special/', tribeController.getSpecialTribes)
 
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/tribes', tribeController.createTribe) // .post will create stuff!
+app.post('/tribes', tribeController.createTribe) 
+
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
+
 // UPDATE - app.put
 app.put('/tribes/:id', tribeController.updateTribe)
 // DELETE - app.delete
 app.delete('/tribes/:id', tribeController.deleteTribe)
 
-/* body-parser is needed for CRUD stuff (?) */
-/* Browser can only GET, we need tools to do full CRUD */
-/* Create stuff with ThunderClient or something similar */
+/*body-parser needed for full CRUD stuff*/
+
+
+/* 
+=============
+Culture Routes
+===============
+ */
 
 // INDEX - app.get
 app.get('/cultures', cultureController.getAllCultures)
 // SHOW - app.get
 app.get('/cultures/:id', cultureController.getCultureById)
 
-app.get('/cultures/name/:name', cultureController.getCultureByName)
+app.get('/cultures/name/:name', cultureController.getCultureByTribeName)
 
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/cultures', cultureController.createCulture) // .post will create stuff!
+app.post('/cultures', cultureController.createCulture) 
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
 app.put('/cultures/:id', cultureController.updateCulture)
 // DELETE - app.delete
 app.delete('/cultures/:id', cultureController.deleteCulture)
 
-/* body-parser is needed for CRUD stuff (?) */
-/* Browser can only GET, we need tools to do full CRUD */
-/* Create stuff with ThunderClient or something similar */
+/*body-parser needed for full CRUD stuff*/
+
+/* 
+=============
+Media Routes
+===============
+ */
 
 // INDEX - app.get
 app.get('/medias', mediaController.getAllMedias)
 // SHOW - app.get
 app.get('/medias/:id', mediaController.getMediaById)
 
-app.get('/medias/name/:name', mediaController.getMediaByName)
+app.get('/medias/name/:name', mediaController.getMediaByTribeName)
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/medias', mediaController.createMedia) // .post will create stuff!
+app.post('/medias', mediaController.createMedia) 
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
 app.put('/medias/:id', mediaController.updateMedia)
 // DELETE - app.delete
 app.delete('/medias/:id', mediaController.deleteMedia)
 
-/* body-parser is needed for CRUD stuff (?) */
-/* Browser can only GET, we need tools to do full CRUD */
-/* Create stuff with ThunderClient or something similar */
+/*body-parser needed for full CRUD stuff*/
+
+
+/* 
+=============
+Comment Routes
+===============
+ */
 
 // INDEX - app.get
 app.get('/comments', commentController.getAllComments)
 // SHOW - app.get
 app.get('/comments/:id', commentController.getCommentById)
 
-app.get('/comments/name/:name', commentController.getCommentByName)
+app.get('/comments/name/:name', commentController.getCommentByTribeName)
 // CREATE - app.post
 /* POST Goes to INDEX route because we are creating something new */
-app.post('/comments', commentController.createComment) // .post will create stuff!
+app.post('/comments', commentController.createComment) 
 /* UPDATE and DELETE must go in show route since we are updating a specific item */
 // UPDATE - app.put
 app.put('/comments/:id', commentController.updateComment)
-app.put('/comments/name/:name', commentController.updateCommentByName)
+app.put('/comments/name/:name', commentController.updateCommentByTribeName)
 // DELETE - app.delete
 app.delete('/comments/:id', commentController.deleteComment)
 
-/* body-parser is needed for CRUD stuff (?) */
-/* Browser can only GET, we need tools to do full CRUD */
-/* Create stuff with ThunderClient or something similar */
-
-
-
-
-
-
-
-
-
+/*body-parser needed for full CRUD stuff*/
 
 
 app.get('/middleware', (req, res, next) => {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const password = require('./secret_password')
 
 mongoose.connect( // Place YOUR connection string with the password. Before the ?, enter desired database name
-  `mongodb+srv://shirt-skunk-63:${password.connectionStringPass}@ga-student-cluster.6hjot.mongodb.net/Tribe-Dossier-Website?retryWrites=true&w=majority&appName=ga-student-cluster`
+  password.connectionStringPass
 )
 .then(()=> {
   console.log('Successfully connected to MongoDB!') // Confirmation for us

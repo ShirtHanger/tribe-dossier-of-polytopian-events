@@ -1,4 +1,4 @@
-/* Here's how you import the comments database into our controller */
+
 
 const { Comment, Media, Culture, Tribe } = require('../models')
 
@@ -28,7 +28,7 @@ getCommentById = async (req, res) => {
     }
 }
 
-const getCommentByName = async (req, res) => {
+const getCommentByTribeName = async (req, res) => {
     try {
         const tribeName = req.params.name
         const comment = await Comment.find({ tribe_name: tribeName })
@@ -69,7 +69,7 @@ const updateComment = async (req, res) => {
     }
 }
 
-const updateCommentByName = async (req, res) => {
+const updateCommentByTribeName = async (req, res) => {
     try {
         let tribeName = req.params.name
         let comment = await Comment.findOneAndUpdate({ tribe_name: tribeName }, req.body, 
@@ -104,6 +104,6 @@ module.exports = {
     updateComment,
     deleteComment,
 
-    getCommentByName,
-    updateCommentByName
+    getCommentByTribeName,
+    updateCommentByTribeName
 }

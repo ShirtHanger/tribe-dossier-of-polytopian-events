@@ -1,4 +1,4 @@
-/* Here's how you import the medias database into our controller */
+
 
 const { Comment, Media, Culture, Tribe } = require('../models')
 
@@ -28,7 +28,7 @@ getMediaById = async (req, res) => {
     }
 }
 
-const getMediaByName = async (req, res) => {
+const getMediaByTribeName = async (req, res) => {
     try {
         const tribeName = req.params.name
         const media = await Media.find({ tribe_name: tribeName })
@@ -89,5 +89,5 @@ module.exports = {
     updateMedia,
     deleteMedia,
 
-    getMediaByName
+    getMediaByTribeName
 }

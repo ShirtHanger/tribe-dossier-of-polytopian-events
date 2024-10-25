@@ -1,4 +1,4 @@
-/* Here's how you import the cultures database into our controller */
+
 
 const { Comment, Media, Culture, Tribe } = require('../models')
 
@@ -28,7 +28,7 @@ getCultureById = async (req, res) => {
     }
 }
 
-const getCultureByName = async (req, res) => {
+const getCultureByTribeName = async (req, res) => {
     try {
         const tribeName = req.params.name
         const culture = await Culture.find({ tribe_name: tribeName })
@@ -89,5 +89,5 @@ module.exports = {
     updateCulture,
     deleteCulture,
 
-    getCultureByName
+    getCultureByTribeName
 }
