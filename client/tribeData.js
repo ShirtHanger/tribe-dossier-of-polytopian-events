@@ -2,6 +2,8 @@
 I knew I could import so I did some googling and discovered localStorage
 https://www.w3schools.com/jsref/prop_win_localStorage.asp */
 
+const portLink = `https://tribe-dossier-fan-website.onrender.com`
+
 /* 
 =====================
 DOM ELEMENTS
@@ -181,7 +183,7 @@ submitCommentButton.addEventListener('click', async () => {
 
         console.log('===========================')
 
-        let newCommentsSection = await axios.put(`http://localhost:3001/comments/name/${tribeName}`, newCommentsObject)
+        let newCommentsSection = await axios.put(`${portLink}/comments/name/${tribeName}`, newCommentsObject)
 
         /* Saw this format online https://jasonwatmore.com/post/2021/08/24/axios-http-put-request-examples */
 
@@ -230,7 +232,7 @@ FUNCTIONS
 
 /* Axios call function using name search */
 async function getTribeInfo(category, tribeName) {
-    let response = await axios.get(`http://localhost:3001/${category}/name/${tribeName}`)
+    let response = await axios.get(`${portLink}/${category}/name/${tribeName}`)
     return response.data[0] 
     /* It's like this because I use find instead of findOne in backend, trying to fix this gave me errors
     will leave as is for now */

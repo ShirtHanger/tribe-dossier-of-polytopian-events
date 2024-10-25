@@ -1,3 +1,5 @@
+const portLink = `https://tribe-dossier-fan-website.onrender.com`
+
 /*
 ================== 
 DOM ELEMENTS
@@ -144,9 +146,9 @@ FUNCTIONS
 /* Axios call */
 async function getTribes(category = null) {
     if (category) {
-        response = await axios.get(`http://localhost:3001/tribes/type/${category}`)
+        response = await axios.get(`${portLink}/tribes/type/${category}`)
     } else {
-        response = await axios.get(`http://localhost:3001/tribes`)
+        response = await axios.get(`${portLink}/tribes`)
     }
     return response.data
 }
