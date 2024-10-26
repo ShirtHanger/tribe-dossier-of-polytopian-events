@@ -9,6 +9,7 @@ DOM ELEMENTS
 const tribeListContainer = document.querySelector('.tribe-list-container')
 const tribeListHeader = document.querySelector('#tribe-list-header')
 const tribeListCaption = document.querySelector('#tribe-list-caption')
+const mainHeader = document.querySelector('h1')
 
 let fullListOfTribes
 let randomTribeArray = []
