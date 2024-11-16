@@ -66,7 +66,7 @@ let tribeName, tribeHead, tribeDescription, tribeUnit, tribeMusic, tribeAmbience
 
 /* Tribe skin info (If it exists) */
 
-let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic, skinAmbience
+let tribeSkinDrill, skinName, skinHead, skinDescription, skinUnit, skinMusic, skinAmbience, skinColor, skinLeader
 
 /* Comments Section  */
 
@@ -123,7 +123,7 @@ toggleSkinButton.addEventListener('click', async () => {
             musicButton.textContent = `Hear some ${tribeName} music!`
             console.log(tribeInspirations) 
             
-            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, tribeColor, tribeInspirations)
+            setTribeCard(skinName, skinDescription, tribeLeader, skinHead, skinUnit, skinColor, tribeInspirations)
         } else { /* It is on the skin, swap to original tribe */
             toggleSkinButton.textContent = `Check out the ${skinName} clan!`
             musicButton.textContent = `Hear some ${skinName} music!`
@@ -277,6 +277,7 @@ async function loadAllTribeData(selectedTribe) {
         skinHead = tribeSkinDrill.headImageURL
         skinDescription = tribeSkinDrill.description
         skinUnit = tribeSkinDrill.unitImageURL
+        skinColor = tribeSkinDrill.colorHex
         skinMusic = new Audio(tribeSkinDrill.theme)
         skinAmbience = new Audio(tribeSkinDrill.natureAmbience)
         toggleSkinButton.style.visibility = 'visible'
