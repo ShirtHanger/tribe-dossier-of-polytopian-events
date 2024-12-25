@@ -18,7 +18,23 @@ const commentController = require('./controllers/commentController')
 
 const app = express() 
 
-app.use(cors())
+const allowedOrigins = [
+    'https://tribe-dossier-fan-site.surge.sh',
+    'https://tribe-dossier-fan-site.surge.sh/tribeData.html',
+    'https://shirthanger.github.io/tribe-dossier-of-polytopian-events/client/',
+    'https://shirthanger.github.io/tribe-dossier-of-polytopian-events/client/tribeData.html',
+  ]
+  
+app.use(cors({
+origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    callback(null, true)
+    } else {
+    callback(new Error('Not allowed by CORS'))
+    }
+}
+}))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
