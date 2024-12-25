@@ -24,15 +24,19 @@ const allowedOrigins = [
     'https://shirthanger.github.io/tribe-dossier-of-polytopian-events/client/',
     'https://shirthanger.github.io/tribe-dossier-of-polytopian-events/client/tribeData.html',
   ]
-  
+
+
+// This prevents third parties and randos from accessing the render link via the source code
+// This checks if the origin is any of my website links, and will ONLY accept requests from that  
 app.use(cors({
-origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-    callback(null, true)
-    } else {
-    callback(new Error('Not allowed by CORS'))
+    origin: function (origin, callback) {
+
+        if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true)
+        } else {
+        callback(new Error('Not allowed by CORS'))
+        }
     }
-}
 }))
 
 app.use(express.json())
