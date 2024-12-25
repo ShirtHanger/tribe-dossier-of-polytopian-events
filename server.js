@@ -20,8 +20,7 @@ const app = express()
 
 const allowedOrigins = [
     'https://tribe-dossier-fan-site.surge.sh',
-    'https://shirthanger.github.io',
-    '',
+    'https://shirthanger.github.io'
   ]
 
 
