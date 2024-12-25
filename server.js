@@ -53,6 +53,15 @@ app.get('/', (req, res)=> { // request and response arguements
     res.send('Welcome to the Tribe Dossier! Learn more about the cultures of the tribes of Polytopia (Owned and Developed by Midjiwan)')
 })
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    if (err.message === 'Not allowed by CORS') {
+      res.status(403).send('This is the backend! You are not supposed to be here! (Like the Cymanti)')
+    } else {
+      res.status(500).send('Internal Server Error')
+    }
+  })
+
 
 /* 
 =============
