@@ -20,9 +20,8 @@ const app = express()
 
 const allowedOrigins = [
     'https://tribe-dossier-fan-site.surge.sh',
-    'https://tribe-dossier-fan-site.surge.sh/tribeData.html',
-    'https://shirthanger.github.io/tribe-dossier-of-polytopian-events/client/',
-    'https://shirthanger.github.io/tribe-dossier-of-polytopian-events/client/tribeData.html',
+    'https://shirthanger.github.io',
+    '',
   ]
 
 
