@@ -2,7 +2,9 @@
 I knew I could import so I did some googling and discovered localStorage
 https://www.w3schools.com/jsref/prop_win_localStorage.asp */
 
-const portLink = `https://tribe-dossier-fan-website.onrender.com`
+const maskedLink = `aHR0cHM6Ly90cmliZS1kb3NzaWVyLWZhbi13ZWJzaXRlLm9ucmVuZGVyLmNvbQ==`
+
+const portLink = atob(maskedLink)
 
 /* 
 =====================
