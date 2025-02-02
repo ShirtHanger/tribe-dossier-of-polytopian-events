@@ -144,9 +144,12 @@ button:hover {
     justify-content: center;
 }
 
-#lore-button-and-pipeman-container {
+#lore-button-title-pipeman-container {
     display: flex;
     flex-direction: column;
+}
+
+#lore-button-and-pipeman-container {
     background: rgba(17, 17, 17, 0.85);
     border-radius: 25%;
 }
