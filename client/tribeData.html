@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="./tribeData.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script type="module" src="./port.js"></script>
     <script defer src="./tribeData.js"></script>
 </head>
 
@@ -42,6 +44,10 @@
             </figure>
             
             <aside id="media-container">
+                <h2 id="media-title-display">
+                    Tribe Moon!
+                    <!-- Stretch goal - new object containing titles for every piece of lore or something -->
+                </h2>
                 <div id="media-display">
                     <!-- Image/Video goes here -->
                 </div>
@@ -55,14 +61,19 @@
         <article id="tribe-lore-container">
 
             <img class="tribe-unit-display">
-                <div id="lore-button-and-pipeman-container">
-                    <div id="lore-and-pipeman-box">
-                        <img src="./images/Pipeman.png" id="pipeman-image-display" alt="Pipeman">
-                        <p id="lore-text-display">
-                            <!-- Relevant Tribe Lore Loads here -->
-                        </p>
+                <div id="lore-button-title-pipeman-container">
+                    <div id="lore-button-and-pipeman-container">
+                        <div id="lore-and-pipeman-box">
+                            <img src="../images/Pipeman.png" id="pipeman-image-display" alt="Pipeman">
+                           
+                                
+                                <p id="lore-text-display">
+                                    <!-- Relevant Tribe Lore Loads here -->
+                                </p>
+                            
+                        </div>
+                        <button id="learn-more-button"><!-- Button will toggle tribe lore --></button>
                     </div>
-                    <button id="learn-more-button"><!-- Button will toggle tribe lore --></button>
                 </div>
             <img class="tribe-unit-display">
 
